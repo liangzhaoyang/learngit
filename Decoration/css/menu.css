@@ -1,0 +1,36 @@
+.menu {
+	TEXT-ALIGN: center; LINE-HEIGHT: 42px; MARGIN: auto auto 0px; PADDING-LEFT: 40px; HEIGHT: 45px
+}
+.menu A {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 13px; PADDING-RIGHT: 13px; DISPLAY: block; FLOAT: left; COLOR: #fff; PADDING-TOP: 0px
+}
+.menu A:hover {
+	COLOR: #fefd03
+}
+.menu .select {
+	PADDING-RIGHT: 15px
+}
+DIV.menu {
+	
+}
+DIV.menu-list {
+	POSITION: absolute; FILTER: alpha(opacity=95); PADDING-BOTTOM: 5px; MARGIN-TOP: 8px; PADDING-LEFT: 0px; WIDTH: 100px; PADDING-RIGHT: 0px; DISPLAY: none; BACKGROUND: #929292; PADDING-TOP: 0px; opacity: 0.8
+}
+DIV.menu-list UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV.menu-list UL LI {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+DIV.menu-list UL LI {
+	LIST-STYLE-TYPE: none; MARGIN: 5px 0px 0px
+}
+DIV.menu-list UL LI A {
+	TEXT-ALIGN: center; LINE-HEIGHT: 25px; WIDTH: 100%; DISPLAY: block; HEIGHT: 25px; COLOR: #ffffff; CURSOR: pointer; TEXT-DECORATION: none
+}
+DIV.menu-list UL LI A SPAN {
+	WIDTH: 100%; DISPLAY: block; HEIGHT: 100%
+}
+DIV.menu-list UL LI A:hover {
+	BACKGROUND: #7d0000; COLOR: #ffffff
+}
