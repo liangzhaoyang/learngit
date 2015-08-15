@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android_custom="http://schemas.android.com/apk/res/com.test.car"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/progressbar"
+    tools:context=".MainActivity" >
+	<com.test.car.RectProgressBar  
+        android:id="@+id/loadProgressBar"  
+        android:layout_width="match_parent"  
+        android:layout_height="65px"
+        android:layout_alignParentBottom="true"        
+          
+        android_custom:roundColor="#D1D1D1"  
+        android_custom:roundProgressColor="#00CAC9"  
+        android_custom:textColor="#FFFFFF"  
+        android_custom:textIsDisplayable="true"  
+        android_custom:roundWidth="65px"  
+        android_custom:textSize="36sp"
+        android_custom:max="100"/>  
+ 
+</RelativeLayout>

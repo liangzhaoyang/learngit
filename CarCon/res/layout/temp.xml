@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout android:orientation="vertical" 
+		android:id="@+id/mLinearLayout"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_weight="1.0">
+		<ImageView android:id="@+id/logoImg" android:background="@drawable/login"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		<RelativeLayout android:id="@+id/setupRelativeLayout"
+						android:paddingTop="21.0px"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginLeft="40.0px"
+			android:layout_marginTop="20.0px" android:layout_marginRight="40.0px">
+			<TextView 
+			    android:id="@+id/setup_info"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:layout_alignParentTop="true"
+				android:textColor="#00CAC9" 
+				android:textSize="24sp"
+				android:text="消息提醒"
+				/>
+			<Switch android:id="@+id/setup_switch"
+			    android:layout_width="96px"
+			    android:layout_height="wrap_content"
+			    android:layout_alignParentRight="true"
+			    android:layout_alignTop="@+id/setup_info"
+			    android:layout_alignBottom="@+id/setup_info"/>
+			<ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff=""
+        android:textOn=""
+        android:background="@drawable/toggle_selector"
+        android:checked="true"/>
+			<View
+			    android:id="@+id/line1"
+		        android:layout_width="match_parent"
+		        android:layout_height="1dip"
+		        android:layout_marginTop="10.0dip"
+		        android:layout_below="@+id/setup_info"
+		        android:background="#696969" />
+			<TextView 
+			    android:id="@+id/setup_update"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10.0dip"
+				android:layout_below="@+id/line1"
+				android:textColor="#00CAC9" 
+				android:textSize="24sp"
+				android:text="检查更新"
+				/>
+			<TextView 
+			    android:id="@+id/setup_help"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" 
+				android:layout_marginTop="15.0dip"
+				android:layout_below="@+id/line1"
+				android:layout_alignParentRight="true"
+				android:text="当前版本：v1.1"
+				/>
+			<View
+			    android:id="@+id/line2"
+		        android:layout_width="match_parent"
+		        android:layout_height="1dip"
+		        android:layout_marginTop="10.0dip"
+		        android:layout_below="@+id/setup_update"
+		        android:background="#696969" />
+			<TextView 
+			    android:id="@+id/setup_help"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:layout_marginTop="10.0dip"
+				android:layout_below="@+id/line2"
+				android:textColor="#00CAC9" 
+				android:textSize="24sp"
+				android:text="使用帮助"
+				/>
+			
+			<View
+			    android:id="@+id/line3"
+		        android:layout_width="match_parent"
+		        android:layout_height="1dip"
+		        android:layout_marginTop="10.0dip"
+		        android:layout_below="@+id/setup_help"
+		        android:background="#696969" />
+			<TextView 
+			    android:id="@+id/setup_quit"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10.0dip"
+				android:layout_below="@+id/line3"
+				android:textColor="#00CAC9" 
+				android:textSize="24sp"
+				android:text="退出登录"
+				/>
+			
+			
+		</RelativeLayout>
+	</LinearLayout>
+</LinearLayout>

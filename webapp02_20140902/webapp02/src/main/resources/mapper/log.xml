@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.LogDao">
+<resultMap type="cn.xxs.entity.Log" id="Log">
+  <result property="descriptions" column="descriptions"  typeHandler="cn.xxs.utility.MyBlobTypeHandler" />  
+  <result property="logtime" column="logtime" />
+  <result property="type" column="type" />
+  <result property="userid" column="userid" />
+ </resultMap>
+ 
+   <select id="queryLogByConditionPage" parameterType="cn.xxs.entity.LogCondition" resultMap="Log">
+   		select * from log
+   		<where>
+   			<if test="logtimeFrom!=null">
+   				logtime > #{logtimeFrom}
+   			</if>
+   			<if	test="logtimeTo!=null">
+  				<![CDATA[
+        		AND logtime < #{logtimeTo}
+        		]]>
+   			</if>
+   			<if test="type!=null and type!=0">
+   				AND type = #{type}
+   			</if>
+   			<if test="userid !=null and userid!=''">
+   				AND userid = #{userid}
+   			</if>
+   			<if test="desc!=null and desc!=''">
+   				AND descriptions LIKE CONCAT(CONCAT('%', #{desc}),'%')
+   			</if>
+   		</where>
+   		 ORDER BY logtime
+   </select>
+   
+   <insert id="insertLog" parameterType="cn.xxs.entity.Log" >
+   		insert into log(logtime, type, userid, descriptions) values(#{logtime}, #{type}, #{userid}, #{descriptions})
+   </insert>
+</mapper>

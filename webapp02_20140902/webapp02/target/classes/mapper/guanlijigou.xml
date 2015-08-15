@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.GuanliJigouDao">
+      
+    <insert id="insertGuanliJigou" parameterType="cn.xxs.entity.GuanliJigou">
+    	insert into guanlijigou(id, orgid, name,bianzhirenshu,shijirenshu,xingzhengjibie) values(#{id},#{orgid},
+    	 #{name}, #{bianzhirenshu},#{shijirenshu},#{xingzhengjibie})
+    </insert>
+    
+    <delete id="deleteGuanliJigou" parameterType="java.lang.Integer">
+    	delete from guanlijigou where id=#{id}
+    </delete>
+	
+	<update id="updateGuanliJigou" parameterType="cn.xxs.entity.GuanliJigou">
+		update guanlijigou set name= #{name},bianzhirenshu= #{bianzhirenshu},shijirenshu= #{shijirenshu},xingzhengjibie= #{xingzhengjibie}
+		where id= #{id}
+		
+	</update>
+	
+	<select id="queryGuanliJigou" resultType="cn.xxs.entity.GuanliJigou">
+		select * from guanlijigou  
+	</select>
+	<select id="queryGuanliJigouByOrg" parameterType="java.lang.Integer" resultType="cn.xxs.entity.GuanliJigou">
+			select * from guanlijigou  where orgid= #{orgid}
+	</select>
+</mapper>

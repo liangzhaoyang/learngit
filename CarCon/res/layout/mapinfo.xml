@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/bmapsView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:background="#FFFFFF" >
+		<ImageView android:id="@+id/mapInfohead"
+		    	  android:layout_width="fill_parent"
+			      android:layout_height="wrap_content"
+			      android:src="@drawable/head"/>
+		 <LinearLayout
+        android:id="@+id/routemap1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/mapInfohead">
+     <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:textSize="24sp"
+                android:textColor="#00CAC9"
+                android:text="我在这里"/>
+       <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="60dp"
+                  android:textSize="24sp"
+                  android:textColor="#00CAC9"
+                  android:text="我要取"/>  
+		 </LinearLayout>
+		<LinearLayout
+        android:id="@+id/routemap2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/routemap1">
+       
+      <EditText android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:background="#00CAC9"
+                android:id="@+id/fromplace"
+                android:text=""/>
+        <ImageView android:layout_width="80dp"
+			      android:layout_height="wrap_content"
+			      android:src="@drawable/next"
+			      android:id="@+id/map_direction"/>
+       <EditText android:layout_width="80dp"
+                  android:layout_height="40dp"
+                  android:background="#00CAC9"
+                  android:id="@+id/toplace"
+                  android:text=""/>  
+       </LinearLayout>
+       <CheckBox
+                android:id="@+id/map_autoGetPosition"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/routemap2"
+                android:checked="true"
+                android:textColor="#C0C0C0"
+                android:textSize="12sp"
+                android:text="自动获取位置" />
+       
+       <RelativeLayout
+        android:id="@+id/routesearch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_autoGetPosition">
+  
+		<EditText android:id="@+id/map_search"
+				android:paddingLeft="45.0sp"
+				android:saveEnabled="true" android:layout_width="fill_parent"
+				android:layout_height="30dp" 
+				android:layout_marginTop="5.0dip" 
+				android:hint="search"
+				android:maxLength="10" 
+				android:layout_alignParentTop="true" 
+				android:background="#FF0000"
+				/>
+			<ImageView android:src="@drawable/search"
+				android:gravity="center_vertical" android:id="@+id/start_search"
+				android:paddingLeft="7.0sp" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_marginRight="15.0sp"
+				android:layout_alignLeft="@+id/map_search"
+				android:layout_alignTop="@+id/map_search"
+				android:layout_alignBottom="@+id/map_search" />
+       </RelativeLayout>
+    </LinearLayout>
+     <Button
+            android:id="@+id/map_ok"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:text="确定" />  
+</RelativeLayout>

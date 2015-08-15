@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">汽车保养</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+	  <string name="search">搜索</string>
+    <string name="menu_share_loc">位置共享</string>
+    <string name="menu_search_route">寻找线路</string>
+    <string name="menu_poi_search">附近查找</string>
+     <string name="menu_poi_search1">天气查找</string>
+     <string name="menu_poi_jingdian">上传</string>
+     
+     <string name="place_date">请选择年月</string>
+     <string-array name="dates">
+         <item>January,2014</item>
+         <item>Februay,2014</item>
+         <item>March,2014</item>
+         <item>April,2014</item>
+         <item>May,2014</item>
+         <item>June,2014</item>
+         <item>July,2014</item>
+         <item>August,2014</item>
+         <item>September,2014</item>
+         <item>October,2014</item>
+         <item>November,2014</item>
+         <item>December,2014</item>
+     </string-array>
+     <string name="place_day">请选择星期</string>
+     <string-array name="days">
+         <item>Monday,24th</item>
+         <item>Tusday,25th</item>
+         <item>Wednesday,26th</item>
+         <item>Thursday,27th</item>
+         <item>Friday,28th</item>
+         <item>Saturday,29th</item>
+         <item>Sunday,30th</item>
+     </string-array>
+     <string name="place_time">请选择时间</string>
+     <string-array name="time">
+         <item>8:00 AM</item>
+         <item>9:00 AM</item>
+         <item>10:00 AM</item>
+         <item>11:00 AM</item>
+         <item>3:00 pM</item>
+         <item>4:00 pM</item>
+         <item>5:00 pM</item>
+         <item>6:00 pM</item>
+         <item>7:00 pM</item>
+     </string-array>
+     <string-array name="search_place">    
+        <item>洗浴</item>     
+        <item>超市</item>    
+        <item>网吧</item>    
+        <item>团购</item>
+        <item>美食</item>
+        <item>酒店</item>
+        <item>银行</item>    
+        <item>公交站</item>    
+        <item>KTV</item>    
+        <item>学校</item>    
+        <item>医院</item>
+        <item>火车站</item>                    
+    </string-array>   
+     <string-array name="camera">    
+        <item>洗浴</item>     
+        <item>超市</item>    
+        <item>网吧</item>    
+                     
+    </string-array> 
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.BaomiQingkuangDao">
+<resultMap type="cn.xxs.entity.BaomiQingkuang" id="baomiResult">
+	<result property="shenheren" column="shenheren"/>
+	<result property="tianbiaoren" column="tianbiaoren"/>  
+	<result property="tianbiaoriqi" column="tianbiaoriqi"/>
+	<collection property="persons" ofType="cn.xxs.entity.Person">
+	<id property="id" column="id"/>
+	<result property="zhiwu" column="zhiwu"/>
+	<result property="name" column="name"/>  
+	<result property="xingbie" column="xingbie"/>  
+	<result property="chushengnianyue" column="chushengnianyue"/>  
+	<result property="xueli" column="xueli"/>  
+	<result property="zhengzhimianmao" column="zhengzhimianmao"/>  
+	<result property="zhuanye" column="zhuanye"/>  
+	<result property="xingzhengjibie" column="xingzhengjibie"/>  
+	<result property="jishuzhicheng" column="jishuzhicheng"/>  
+	<result property="renmingdanwei" column="renmingdanwei"/>  
+	<result property="shifouzhuanzhi" column="shifouzhuanzhi"/>  
+	<result property="jianrenqitazhiwu" column="jianrenqitazhiwu"/>  
+	<result property="kaishiriqi" column="kaishiriqi"/>  
+	<result property="suoshubumen" column="suoshubumen"/>  
+	<result property="danweimingcheng" column="danweimingcheng"/>  
+	</collection>  
+</resultMap>
+   <select id="queryBaomiQingkuangInfoPage" parameterType="java.lang.Integer" resultMap="baomiResult">
+   		select * from person,orgnization where orgnization.id=person.orgid and orgnization.id = #{orgid}
+   		<!--  
+   		person.id, person.zhiwu,person.name,person.xingbie,person.chushengnianyue,person.xueli,person.zhengzhimianmao,
+    	person.zhuanye,person.xingzhengjibie,person.jishuzhicheng,person.renmingdanwei,person.shifouzhuanzhi,person.jianrenqitazhiwu,person.kaishiriqi,
+    	person.suoshubumen,person.danweimingcheng,orgnization.shenheren,tianbiaoren,tianbiaoriqi
+    	
+    	from orgnization LEFT JOIN person ON orgnization.id=person.orgid where orgnization.id = #{orgid}
+    	-->
+   </select>
+</mapper>

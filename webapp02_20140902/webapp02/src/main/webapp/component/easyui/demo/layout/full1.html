@@ -1,0 +1,282 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+	<meta charset="gb2312">
+	<title>Full Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+ 	<script type="text/javascript" src="js/jquery.easyui.min.js"></script>  
+ <script type="text/javascript">  	 		
+ 	 	$().ready(function(){ 	 	
+ 	 		$("#divzc").show();
+ 	 		$("#divdb").hide();
+ 	 			
+ 	 		$("#btnzc").click(function(){ 
+ 	 			$("#divzc").show();
+ 	 			$("#divdb").hide();
+ 	 		});
+ 	 		
+ 	 		$("#btndb").click(function(){
+ 	 			$("#divdb").show();
+ 	 			$("#divzc").hide();
+ 	 		}); 
+ 	 		
+ 	 		$("#rightdiv").resize(function(){  
+ 	 			resizetabs(); 				
+ 	 		});  
+ 	 		 
+ 	 		$("#leftdiv").resize(function(){
+ 	 			resizetabs();
+ 	 		});  
+ 	 		 
+ 	 		$("#leftdiv").resize(function(){
+ 	 			resizetabs();
+ 	 		});  
+ 	 		
+ 	 		//左边折叠事件
+ 	 		
+ 	 		//右边折叠事件
+ 	 		
+ 	 		
+ 	 	}); 
+ 	 
+ 	 	function resizetabs()
+ 	 	{  
+ 	 			//alert("改变前---------主工作区的宽度：" + $("#maindiv").css("width") ); 
+ 	 			
+ 	 			var bodywidth=0;
+ 	 			 //获取窗口宽度 
+			    if (window.innerWidth) 
+			    {
+			    	bodywidth = window.innerWidth;
+			    }
+			    else if ((document.body) && (document.body.clientWidth)) 
+			    {
+			    	bodywidth = document.body.clientWidth;
+			    }  
+			    //判断如果左边折叠了；
+			    
+			    //判断如果右边折叠了；
+			    
+ 	 			$("#divtabs").css("width",bodywidth - parseInt($("#rightdiv").css("width"))- parseInt($("#leftdiv").css("width"))-36); 	
+ 	 			
+ 	 			 
+ 	 	}
+ 	 
+ 	 	function addtabs(title,url)
+ 	 	{
+				$('#divtabs').tabs('add',{
+					title: title,
+					content: '<div style="padding:10px"><iframe scrolling="yes" frameborder="0" src="'+url+'"   style="width:100%;height:100%;"></iframe></div>',
+					closable: true
+				}); 
+ 	 	}
+ 	 		
+ 	 </script>
+ 	 
+ 	 <script language="javascript">
+
+//顶部菜单最大高度
+var TOP_MENU_MAX_HEIGHT = "205";   
+jQuery(document).ready(function(){
+	//导航块移动
+    jQuery(".menuItem").hover(function() {
+    	topMenuNavMove(this);
+    }, function(){});
+    //菜单展开或者收缩
+    jQuery("#topMenuContr").bind("click", function() {
+    	if (jQuery(".topMenuDiv").height() > 70) {
+    		jQuery(this).removeClass("menuNavSpan_Contraction");
+    		jQuery(this).addClass("menuNavSpan_Expand");
+    		topMenuContraction();
+    	} else {
+    		jQuery(this).removeClass("menuNavSpan_Expand");
+    		jQuery(this).addClass("menuNavSpan_Contraction");
+	        topMenuExpand();
+	    }
+    });
+    
+    //光标不在菜单区域时，如果菜单时展开的则收缩。
+    jQuery(".topMenuDiv").hover(function() {}, function() {
+    	if (jQuery(".topMenuDiv").height() > 70) {
+	    	topMenuContraction();
+	    }
+    });
+});
+
+function topMenuNavMove(_this) {
+    $this=jQuery(_this);
+    jQuery("#divFloatBg").show();
+    jQuery("#divFloatBg").each(function(){jQuery.dequeue(this, "fx");}).animate({                
+        top: $this.position().top -3,
+        left: $this.position().left+4
+    },600, 'easeOutExpo');
+}
+
+/**
+* 菜单收缩
+*/
+function topMenuContraction() {
+	jQuery("#topMenuContr").removeClass("menuNavSpan_Contraction");
+    jQuery("#topMenuContr").addClass("menuNavSpan_Expand");
+   	
+	jQuery(".topMenuDiv").each(function() {jQuery.dequeue(this, "fx")}).animate({
+		height:70
+	} , 0);
+	if (jQuery("#divFloatBg").offset().top >= 67 ) {
+	    jQuery("#divFloatBg").hide();
+	}
+	jQuery(".topMenuDiv").css("background", "");
+}
+
+/**
+* 菜单展开
+*/
+function topMenuExpand() {
+	jQuery(".topMenuDiv").css("background", "url(img/menu_expand_bg.jpg)  ");
+	jQuery(".topMenuDiv").css("background-position","0 -137");
+	jQuery(".topMenuDiv").css("background-repeat","no-repeat");
+	jQuery(".topMenuDiv").css("z-index","9999px");
+	
+	jQuery(".topMenuDiv").each(function() {jQuery.dequeue(this, "fx")}).animate({
+   		height: TOP_MENU_MAX_HEIGHT
+   	} , 0);
+}
+
+/**
+* 点击菜单项时触发，会统计菜单点击的次数，并打开子项（左侧）
+*/
+function clickstatictics(_this) {
+	topMenuContraction();
+
+	//jQuery(".slideDivHidden").hide();//animate({opacity: "hide", height: "hide"}, 0);
+	dymlftenu(_this);
+	var ajaxUrl = "/wui/theme/ecology7/page/topMenuClickStatictics.jsp";
+	ajaxUrl += "?mid=";
+	ajaxUrl += jQuery(_this).attr("levelid");
+	ajaxUrl += "&token=";
+	ajaxUrl += new Date().getTime();
+	
+	jQuery.ajax({
+	    url: ajaxUrl,
+	    dataType: "text", 
+	    contentType : "charset=gbk", 
+	    error:function(ajaxrequest){alert("error");}, 
+	    success:function(content){
+	    }  
+    });
+}
+</script>
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'north',border:false" style="height:60px;background:#B3DFDA;padding:10px">
+			       
+		<table border="0" width="461px" height="70px" align="center" cellpadding="0px" cellspacing="0px">
+			<tr>
+				<td valign="center" width="461px" >
+					<div class="topMenuDiv"> 
+					<iframe src="" style="filter='progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0)';filter:alpha(opacity=0);opacity:0;position:absolute; visibility:inherit; top:0px; left:0px; width:100%; height:100%; z-index:-1; ">
+		</iframe>
+					<div class="topMenuDiv_top">
+						<div id="divFloatBg"></div>
+						<div id="btnzc" class="menuItem" style="" onClick="dymlftenu(this);topMenuContraction();" >
+						    <DIV class="menuItemIcon" style="background-position:0 0;"></DIV>
+							<DIV   class="slideItemText" style="color: black;">门户</DIV>
+						</div>
+						 
+						<div  id="btndb" class="menuItem" style="" onClick="clickstatictics(this);" levelid="80" id="null" target="mainFrame"  title="协助">
+						    <DIV class="menuItemIcon" style="background-position:-37 -0;"></DIV>
+							<DIV   class="slideItemText" style="color: black;">协助</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="1" id="null" target="mainFrame"  title="流程">
+						    <DIV class="menuItemIcon" style="background-position:-111 -0;"></DIV>
+							<DIV class="slideItemText" style="color: black;">流程</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="2" id="null" target="mainFrame"  title="知识">
+						    <DIV class="menuItemIcon" style="background-position:-74 -0;"></DIV>
+							<DIV class="slideItemText" style="color: black;">知识</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="3" id="null" target="mainFrame"  title="客户">
+						    <DIV class="menuItemIcon" style="background-position:-148 -0;"></DIV>
+							<DIV class="slideItemText" style="color: black;">客户</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="392" id="null" target="mainFrame"  title="微博">
+						    <DIV class="menuItemIcon" style="background-position:-37 -111;"></DIV>
+							<DIV class="slideItemText" style="color: black;">微博</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="5" id="null" target="mainFrame"  title="人事">
+						    <DIV class="menuItemIcon" style="background-position:-222 -0;"></DIV>
+							<DIV class="slideItemText" style="color: black;">人事</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="4" id="null" target="mainFrame"  title="项目">
+						    <DIV class="menuItemIcon" style="background-position:-185 -0;"></DIV>
+							<DIV class="slideItemText" style="color: black;">项目</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="7" id="null" target="mainFrame"  title="资产">
+						    <DIV class="menuItemIcon" style="background-position:-37 -37;"></DIV>
+							<DIV class="slideItemText" style="color: black;">资产</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="6" id="null" target="mainFrame"  title="会议">
+						    <DIV class="menuItemIcon" style="background-position:-74 -37;"></DIV>
+							<DIV class="slideItemText" style="color: black;">会议</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="107" id="null" target="mainFrame"  title="通信">
+						    <DIV class="menuItemIcon" style="background-position:-111 -37;"></DIV>
+							<DIV class="slideItemText" style="color: black;">通信</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="140" id="null" target="mainFrame"  title="日程">
+						    <DIV class="menuItemIcon" style="background-position:-148 -37;"></DIV>
+							<DIV class="slideItemText" style="color: black;">日程</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="144" id="null" target="mainFrame"  title="车辆">
+						    <DIV class="menuItemIcon" style="background-position:-185 -37;"></DIV>
+							<DIV class="slideItemText" style="color: black;">车辆</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="111" id="null" target="mainFrame"  title="信息">
+						    <DIV class="menuItemIcon" style="background-position:-0 -74;"></DIV>
+							<DIV class="slideItemText" style="color: black;">信息</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="110" id="null" target="mainFrame"  title="报表">
+						    <DIV class="menuItemIcon" style="background-position:-37 -74;"></DIV>
+							<DIV class="slideItemText" style="color: black;">报表</DIV>
+						</div>
+						 
+						<div class="menuItem" style="" onClick="clickstatictics(this);" levelid="114" id="null" target="mainFrame"  title="设置">
+						    <DIV class="menuItemIcon" style="background-position:-74 -74;"></DIV>
+							<DIV class="slideItemText" style="color: black;">设置</DIV>
+						</div>
+						
+					</div>
+					<div style="cursor:pointer;width:27px;height:55px;float:left;position:relative;top:5px;left:15px;" id="topMenuContr" style="" class="menuNavSpan_Expand"></div>
+					</div>
+				</td>
+				
+			</tr>
+			</table>
+	
+	</div>
+	<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">west content</div>
+	<div data-options="region:'east',split:true,collapsed:true,title:'East'" style="width:100px;padding:10px;">east region</div>
+	<div data-options="region:'south',border:false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
+	<div data-options="region:'center',title:'Center'"></div>
+</body>
+</html>

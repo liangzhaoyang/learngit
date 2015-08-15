@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="cn.xxs.dao.XueliMingxiDao">
+
+<!-- 简历录入 -->
+<insert id ="insertXueliMingxi" parameterType="cn.xxs.entity.XueliMingxi"> 
+		insert into xuelimingxi (id,personid,leibie,biyeyuanxiao,zhuanye,xueli)
+		values (#{id},#{personid},#{leibie},#{biyeyuanxiao},#{zhuanye},#{xueli})
+</insert>
+<!-- 简历修改 -->
+<update id ="updateXueliMingxi" parameterType="cn.xxs.entity.XueliMingxi"> 
+		update xuelimingxi set leibie=#{leibie},biyeyuanxiao=#{biyeyuanxiao},zhuanye=#{zhuanye},xueli=#{xueli}
+		where personid=#{personid}
+</update>
+<!-- 简历详情-->
+<select id="selectXueliMingxiByPersonid" parameterType="Integer" resultType="cn.xxs.entity.XueliMingxi">
+select * from xuelimingxi where personid=#{personid}
+</select>
+</mapper>

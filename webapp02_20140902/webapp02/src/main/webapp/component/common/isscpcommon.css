@@ -1,0 +1,145 @@
+IMG{
+	border-bottom: 0px;
+	border-left: 0px;
+	border-top: 0px;
+	border-right: 0px;
+}
+.laber-info-title {
+	font-family: Arial;
+	font-size: 12px;
+	width: 100%;
+	font-weight:bold;
+}
+.laber-info {
+	font-family: Arial;
+	font-size: 12px;
+	width: 100%;
+}
+.textarea_form_middle{
+	margin-left: 0px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	width: 400px;
+	height: 100px;
+}
+.input_form_middle{
+	border-bottom: #e0e0e0 1px solid;
+	border-left: #e0e0e0 1px solid;
+	background-color: #fff;
+	width: 150px;
+	height: 24px;
+	border-top: #e0e0e0 1px solid;
+	border-right: #e0e0e0 1px solid;
+	margin-left: 0px;
+}
+
+
+/*
+.table_form
+{
+	text-align: right;
+	overflow-x: hidden;
+	background-color: #dbdbdb;
+	width: 680px;
+	margin-left: 15px;
+	overflow: auto;
+}
+.table_form TR TH
+{
+	text-align: right;
+	background-color: #f0f0f0;
+	width: 110px;
+	padding-right: 10px;
+	font-weight: normal;
+}
+.table_form TR TD
+{
+	text-align: left;
+	background-color: #f5f5f5;
+	padding-left: 5px;
+	height: 34px;
+	font-weight: normal;
+}
+*/
+
+/*style for table by yuluqian 05/15*/
+.table_form {
+	border-collapse: collapse;
+	width: 96%;
+	margin: 5px auto;
+	border: 1px solid #ccc;
+}
+
+.table_form tr {
+	border-bottom: 1px solid #ddd;
+}
+
+.table_form caption {
+	text-align: left;
+	font-weight: 700;
+	padding: 5px 0;
+}
+
+.table_form tr th {
+	font-weight: 700;
+	text-align: right;
+}
+
+.table_form tr td {
+	text-align: left;
+	padding: 5px 2px;
+	border-bottom: 1px solid #ddd;
+}
+
+.table_form tr td input {
+	height: 18px;
+	line-height: 18px;
+}
+
+.table_form tr td select {
+	height: 22px;
+}
+
+.link_buttons {
+	margin: 10px auto;
+	width: 94%;
+	text-align: right;
+}
+/*end*/
+
+.zz_leli {
+	width: 100%;
+	background: #e8e8e8;
+	height: 100%;
+
+} 
+.zz_top {
+	width: 100%;
+	background: url(./../../images/zz_back.png); FLOAT: left;
+	height: 27px;
+	padding-top: 3px;
+}
+.zz_top A {
+	width: 39px;
+	float: left;
+	height: 22px;
+	margin-left: 3px;
+}
+.zz_lingz{
+	padding-left: 1px;
+	width: 32px;
+	float: left;
+	height: 22px;
+}
+.zz_lingz A{
+	padding-bottom: 0px;
+	padding-left: 12px;
+	width: 32px;
+	padding-right: 0px;
+	background: url(./../../images/yiqian.png) no-repeat;
+	float: left;
+	height: 22px;
+	padding-top: 4px;
+}
+<!-- add CSS 2013/5/28 by liyunlong -->
+.bg{ background-color:#F3F3F3;}

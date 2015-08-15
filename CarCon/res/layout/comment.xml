@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/comment_bg" >
+
+    <RatingBar
+        android:id="@+id/ratingbar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="550px"
+        android:layout_marginRight="142px"
+        style="@style/MyRatingBar"
+        android:numStars="5"
+        android:rating="0" />
+    <RatingBar
+        android:id="@+id/ratingbar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ratingbar1"
+        android:layout_marginTop="60px"
+        android:layout_marginRight="142px"
+        style="@style/MyRatingBar"
+        android:numStars="5"
+        android:rating="0" />
+    <RatingBar
+        android:id="@+id/ratingbar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ratingbar2"
+        android:layout_marginTop="60px"
+        android:layout_marginRight="142px"
+        style="@style/MyRatingBar"
+        android:numStars="5"
+        android:rating="0" />
+    <RatingBar
+        android:id="@+id/ratingbar4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ratingbar3"
+        android:layout_marginTop="60px"
+        android:layout_marginRight="142px"
+        style="@style/MyRatingBar"
+        android:numStars="5"
+        android:rating="0" />
+	<Button android:id="@+id/comment_complete"
+	    android:layout_width="360px"
+	    android:layout_height="96px"
+	    android:layout_centerHorizontal="true"
+	    android:layout_alignParentBottom="true"
+	    android:layout_marginBottom="126px"
+	    android:text="完成"
+	    android:background="@drawable/btn_bg2"/>
+</RelativeLayout>

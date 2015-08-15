@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20px"
+    android:paddingLeft="48px"
+    android:paddingRight="48px"
+    android:orientation="vertical"
+    android:background="#FFFFFF" >
+    <EditText android:layout_width="match_parent"
+        android:layout_height="314px"
+        android:maxLength="20"
+        android:background="#F2F2F2"
+        android:id="@+id/info_suggestion"/>
+
+</LinearLayout>

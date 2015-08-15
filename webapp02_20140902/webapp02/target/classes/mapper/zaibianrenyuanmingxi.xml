@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.ZaibianRenyuanMingxiDao">
+
+ <select id="getAllZaibian" parameterType="Integer" resultType="cn.xxs.entity.ZaibianRenyuanMingxi">  
+	        select * from zaibianrenyuanmingxi  where orgid=#{orgid}
+	 </select> 
+	 
+
+	<insert id="insertZaibianRenyuan" parameterType="cn.xxs.entity.ZaibianRenyuanMingxi">
+		insert into zaibianrenyuanmingxi (orgid, code, num) 
+		values(#{orgid}, #{code}, #{num})
+	</insert>
+	
+	<delete id="deleteZaibianRenyuanByOrgid" parameterType="Integer">
+		delete from zaibianrenyuanmingxi where orgid=#{orgid, jdbcType=INTEGER}
+	</delete>
+
+</mapper>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.UserDao">
+	<insert id="insertUser" parameterType="cn.xxs.entity.User"
+		keyProperty="id">
+		insert into user(id, name, password, orgid, status, deleteflag,
+		firsttime)
+		values(#{id},#{name}, #{password}, #{orgid}, 0,
+		<choose>
+			<when test="deleteflag==false">
+				0,
+			</when>
+			<otherwise>
+				1,
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="firsttime ==false">
+				1
+			</when>
+			<otherwise>
+				0
+			</otherwise>
+		</choose>
+		)
+	</insert>
+	<select id="selectForLogin" parameterType="map" resultType="cn.xxs.entity.User">
+		select * from user where id = #{id} and password = #{password} and status=1
+	</select>
+	<update id="modifyPassword" parameterType="cn.xxs.entity.User">
+		update user set
+		password = #{password},firsttime = 0
+		where id = #{id}
+	</update>
+	<update id="setFirstTimeFlag" parameterType="String">
+		update user set
+		firsttime = 1 where id = #{userId}
+	</update>
+	<select id="queryUsersPage" parameterType="cn.xxs.entity.UserCondition" resultType="map">
+		select u.id,u.name,u.orgid,o.orgname,o.suorgid,oo.orgname as suorgname
+		from user u left join
+		Orgnization o on u.orgid = o.id left join
+		Orgnization oo on o.suorgid = oo.id
+		<![CDATA[where u.deleteflag<>1]]>
+		<if test="id!=null and id!=''">
+			and u.id like CONCAT(CONCAT('%', #{id} ),'%') 
+		</if>
+		<if test="name!=null and name!=''">
+			and u.name like CONCAT(CONCAT('%', #{name} ),'%') 
+		</if>
+		<if test="orgName!=null and orgName!=''">
+			and o.orgname like CONCAT(CONCAT('%', #{orgName} ),'%') 
+		</if>
+<!-- 		<if test="q_role!=null and q_role!=''">
+			and u.id in(select distinct userid from r_user_role ur
+			where
+			ur.roleid = #{q_role})
+		</if>
+		<if test="q_orgId!=null and q_orgId!=''">
+			and u.orgid = #{q_orgId}
+		</if>
+ -->
+ 		<if test="order != null and order != ''">
+ 			order by ${order}
+ 		</if>
+ 	</select>
+	<update id="deleteUserById" parameterType="String">
+		update user set
+		deleteflag = 1 where id = #{id, jdbcType=VARCHAR}
+	</update>
+	<update id="updateUser" parameterType="cn.xxs.entity.User">
+		update user set
+		name =
+		#{name},orgid = #{orgid} where id = #{id}
+	</update>
+
+	<!-- 授权 -->
+	<update id="userGrant" parameterType="java.lang.String">
+		update user set status = 1
+		where id = #{id}
+	</update>
+	<!-- 取消授权 -->
+	<update id="cancelGrant" parameterType="java.lang.String">
+		update user set status =
+		0 where id = #{id}
+	</update>
+
+	<!-- 授权管理查询 -->
+	<select id="selectUsersByConditionPage" parameterType="cn.xxs.entity.UserCondition" resultType="map">
+		select u.id,u.name,u.orgid,u.status,o.orgname,o.suorgid,oo.orgname as suorgname
+		from user u left join
+		Orgnization o on u.orgid = o.id left join
+		Orgnization oo on o.suorgid = oo.id
+		where 1=1
+		<if test="id!=null and id!=''">
+			and u.id like CONCAT(CONCAT('%', #{id} ),'%')
+		</if>
+		<if test="name!=null and name!=''">
+			and u.name like CONCAT(CONCAT('%', #{name} ),'%')
+		</if>
+		<if test="role!=null and role>0">
+			and u.id in(select distinct userid from r_user_role ur
+			where
+			ur.roleid = #{role})
+		</if>
+		<if test="orgName!=null and orgName!=''">
+			and o.orgname like CONCAT(CONCAT('%', #{orgName} ),'%')
+		</if>
+		<if test="status!=null and status>0">
+			and u.status = #{status}
+		</if>
+	</select>
+
+	<select id="getUserById" parameterType="String" resultType="cn.xxs.entity.User">
+	select * from user where id=#{userId, jdbcType=VARCHAR}
+	</select>
+	
+</mapper>

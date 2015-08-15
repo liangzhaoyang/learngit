@@ -1,0 +1,27 @@
+$(function(){
+	$('#tt').datagrid({  
+	    title:'人员编制统计',
+	    loadMsg:"正在加载数据，请稍候...",
+	    url:'rybztjcx.do',  
+	    columns:[[  
+	        {field:'name',title:'省份',rowspan:2},  
+	        {title:'编制构成情况',colspan:4},
+	        {title:'领导职数',colspan:5},
+	        {title:'聘用人员',colspan:4}
+	    ],[  
+	        {field:'Col_101',title:'公务员',align:'right'},  
+	        {field:'Col_102',title:'参照管理事业编制',align:'right'},  
+	        {field:'Col_103',title:'全额拨款事业编制',align:'right'},  
+	        {field:'Col_104',title:'自收自支事业编制',align:'right'},  
+	        {field:'Col_106',title:'局长',align:'right'},  
+	        {field:'Col_107',title:'副局长',align:'right'},  
+	        {field:'Col_108',title:'巡视员',align:'right'},  
+	        {field:'Col_109',title:'副巡视员',align:'right'},  
+	        {field:'Col_110',title:'处室领导职数',align:'right'},  
+	        {field:'Col_112',title:'领导岗位任职人员',align:'right'},  
+	        {field:'Col_113',title:'专业技术人员',align:'right'},  
+	        {field:'Col_114',title:'工勤人员',align:'right'},  
+	        {field:'Col_115',title:'其他人员',align:'right'},  
+	    ]]
+	}); 
+});

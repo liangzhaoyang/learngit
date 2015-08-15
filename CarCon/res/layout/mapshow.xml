@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     >
+     <LinearLayout
+            android:id="@+id/tab_linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#808080" >
+            </TabWidget>
+		<FrameLayout 
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:id="@android:id/tabcontent"
+			>
+		
+		<RelativeLayout android:id="@+id/widget_layout_place"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent">
+			
+			<com.baidu.mapapi.map.MapView
+			        android:id="@+id/bmapsView1"
+			        android:layout_width="fill_parent"
+			        android:layout_height="fill_parent" />
+			<RelativeLayout android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_alignParentTop="true"
+			        android:id="@+id/map_info_layout"
+			        android:background="#FFFFFF">
+			<EditText android:id="@+id/map_source"
+				android:paddingLeft="70px"
+				android:saveEnabled="true" android:layout_width="fill_parent"
+				android:layout_height="96px" android:layout_marginLeft="25.0dip"
+				android:layout_marginTop="5.0dip" android:layout_marginRight="25.0dip"
+				android:layout_marginBottom="5.0px" android:hint="出发地"
+				android:maxLength="20" 
+				android:layout_alignParentTop="true" 
+				/>
+			<ImageView android:src="@drawable/img_position"
+				android:gravity="center_vertical" android:id="@+id/img_map_label2"
+				android:layout_width="34px"
+				android:layout_height="56px" android:layout_marginRight="15.0sp"
+				android:layout_marginTop="15px"
+				android:layout_marginLeft="20px"
+				android:layout_alignLeft="@+id/map_source"
+				android:layout_alignTop="@+id/map_source" />
+			<EditText android:id="@+id/map_des"
+				android:paddingLeft="70px"
+				android:saveEnabled="true" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_marginRight="1.0dip"
+				android:maxLength="16" android:layout_below="@+id/map_source"
+				android:layout_alignLeft="@+id/map_source"
+				android:layout_alignRight="@+id/map_source"
+				android:hint="目的地"/>
+			<ImageView android:src="@drawable/img_position"
+				android:gravity="center_vertical" android:id="@+id/img_map_label1"
+				android:layout_width="34px"
+				android:layout_height="56px" 
+				android:layout_alignTop="@+id/map_des"
+				android:layout_marginTop="15px"
+				android:layout_alignRight="@+id/img_map_label2"/>
+			
+			       <RelativeLayout
+			        android:id="@+id/routesearch"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_below="@+id/map_des">
+			  
+					<EditText android:id="@+id/map_search"
+							android:paddingLeft="45.0sp"
+							android:saveEnabled="true" android:layout_width="fill_parent"
+							android:layout_height="64px" 
+							android:layout_marginTop="5.0dip" 
+							android:hint="search"
+							android:maxLength="10" 
+							android:editable="false"
+							android:layout_alignParentTop="true" 
+							android:background="#FA7E6F"
+							/>
+						<ImageView android:background="@drawable/btn_mani_bg"
+							android:gravity="center_vertical" android:id="@+id/start_search"
+							android:paddingLeft="7.0sp" android:layout_width="48px"
+							android:layout_height="48px" android:layout_marginRight="15.0sp"
+							android:layout_alignLeft="@+id/map_search"
+							android:layout_marginLeft="20px"
+							android:layout_alignTop="@+id/map_search"
+							android:layout_marginTop="8px"
+						/>
+			       </RelativeLayout>
+				</RelativeLayout>
+				
+				<RelativeLayout android:layout_width="fill_parent"
+			        android:layout_height="100px"
+			        android:layout_alignParentBottom="true"
+			        android:visibility="gone"
+			        android:id="@+id/map_info_layout1"
+			        android:background="#FFFFFF">
+			       <ImageView android:src="@drawable/img_position"
+			           android:layout_height="wrap_content"
+			           android:layout_width="wrap_content"
+			           android:id="@+id/map_info_img"/>
+			       <TextView android:text=""
+			           android:id="@+id/map_info_up"
+			           android:textSize="16sp"
+			           android:layout_width="wrap_content"
+			           android:layout_height="wrap_content"
+			           android:layout_alignParentRight="true"
+			           android:layout_toRightOf="@+id/map_info_img"
+			           android:layout_alignTop="@+id/map_info_img"/>
+			       <TextView android:text=""
+			           android:textSize="10sp"
+			           android:id="@+id/map_info_down"
+			           android:layout_width="wrap_content"
+			           android:layout_height="wrap_content"
+			           android:layout_alignParentRight="true"
+			           android:layout_toRightOf="@+id/map_info_img"
+			           android:layout_alignBottom="@+id/map_info_img"
+			           android:layout_below="@+id/map_info_up"/>
+			    </RelativeLayout>
+			</RelativeLayout>
+			<RelativeLayout android:id="@+id/widget_layout_time"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:background="#FFFFFF">
+				<EditText android:id="@+id/map_date"
+				android:paddingLeft="100px"
+				android:saveEnabled="true" android:layout_width="fill_parent"
+				android:layout_height="96px" android:layout_marginLeft="25.0dip"
+				android:layout_marginTop="5.0dip" android:layout_marginRight="25.0dip"
+				android:layout_marginBottom="5.0px" android:hint="日期"
+				android:maxLength="20" 
+				android:layout_alignParentTop="true" 
+				/>
+			<ImageView android:src="@drawable/img_date"
+				android:gravity="center_vertical" android:id="@+id/img_date_label2"
+				android:layout_width="52px"
+				android:layout_height="52px" 
+				android:layout_marginTop="18px"
+				android:layout_marginLeft="20px"
+				android:layout_alignLeft="@+id/map_date"
+				android:layout_alignTop="@+id/map_date" />
+			<EditText android:id="@+id/map_time"
+				android:paddingLeft="100px"
+				android:saveEnabled="true" android:layout_width="wrap_content"
+				android:layout_height="96px" android:layout_marginRight="1.0dip"
+				android:maxLength="16" android:layout_below="@+id/map_date"
+				android:layout_alignLeft="@+id/map_date"
+				android:layout_alignRight="@+id/map_date"
+				android:hint="时间" />
+			<ImageView android:src="@drawable/img_time"
+				android:id="@+id/img_date_label1"
+				android:paddingLeft="7.0sp" android:layout_width="52px"
+				android:layout_height="52px"
+				android:layout_marginTop="18px"
+				android:layout_alignTop="@+id/map_time"
+				android:layout_alignRight="@+id/img_date_label2"/>
+			</RelativeLayout>
+			
+			<RelativeLayout android:id="@+id/widget_layout_account"
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:background="#FFFFFF">
+			<EditText android:id="@+id/map_account"
+				android:paddingLeft="150px"
+				android:saveEnabled="true" android:layout_width="fill_parent"
+				android:layout_height="96px" android:layout_marginLeft="25.0dip"
+				android:layout_marginTop="5.0dip" android:layout_marginRight="25.0dip"
+				android:layout_marginBottom="5.0px" android:hint="联系人"
+				android:maxLength="20" 
+				android:layout_alignParentTop="true" 
+				/>
+			<ImageView android:src="@drawable/map_account"
+				android:gravity="center_vertical" android:id="@+id/img_account_label2"
+				android:layout_width="52px"
+				android:layout_height="56px" 
+				android:layout_alignLeft="@+id/map_account"
+				android:layout_alignTop="@+id/map_account"
+				android:layout_marginTop="18px"
+				android:layout_marginLeft="18px" />
+			<EditText android:id="@+id/map_tel"
+				android:paddingLeft="150px"
+				android:saveEnabled="true" android:layout_width="fill_parent"
+				android:layout_height="96px" android:layout_marginRight="1.0dip"
+				android:maxLength="16" android:layout_below="@+id/map_account"
+				android:layout_alignLeft="@+id/map_account"
+				android:layout_alignRight="@+id/map_account"
+				android:hint="电话" />
+			<ImageView android:src="@drawable/map_tel"
+				android:id="@+id/img_account_label1"
+				android:layout_width="30px"
+				android:layout_height="52px" 
+				android:layout_alignTop="@+id/map_tel"
+				android:layout_marginTop="18px"
+				android:layout_alignRight="@+id/img_account_label2"
+				 />
+			</RelativeLayout>
+		</FrameLayout>
+</LinearLayout>
+
+</TabHost>

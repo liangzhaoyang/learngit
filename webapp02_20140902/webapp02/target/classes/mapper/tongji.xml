@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.TongjiDao">
+    <select id="getRenyuanbianzhi" resultType="Map">
+		select orgnization.shengfen shengfen, renyuanbianzhimingxi.code code, sum(renyuanbianzhimingxi.num) num
+		from orgnization left join renyuanbianzhimingxi on orgnization.id = renyuanbianzhimingxi.orgid
+		group by orgnization.shengfen, renyuanbianzhimingxi.code;
+    </select>
+    
+    <select id="getZaibianrenyuan" resultType="Map">
+		select orgnization.shengfen shengfen, zaibianrenyuanmingxi.code code, sum(zaibianrenyuanmingxi.num) num
+		from orgnization left join zaibianrenyuanmingxi on orgnization.id = zaibianrenyuanmingxi.orgid
+		group by orgnization.shengfen, zaibianrenyuanmingxi.code;
+    </select>
+
+    <select id="getJigou" resultType="Map">
+		(select orgnization.shengfen shengfen, 'xzglbm' leibie, xingzhengbumen.xingzhengjibie xingzhengjibie, sum(xingzhengbumen.bianzhirenshu) bianzhirenshu, sum(xingzhengbumen.shijirenshu) shiyourenshu
+		from orgnization left join xingzhengbumen on orgnization.id = xingzhengbumen.orgid
+		group by shengfen, leibie, xingzhengjibie)
+		union 
+		(select orgnization.shengfen shengfen, 'czgljg' leibie, guanlijigou.xingzhengjibie xingzhengjibie, sum(guanlijigou.bianzhirenshu) bianzhirenshu, sum(guanlijigou.shijirenshu) shiyourenshu
+		from orgnization left join guanlijigou on orgnization.id = guanlijigou.orgid
+		group by shengfen, leibie, xingzhengjibie)
+		union
+		(select orgnization.shengfen shengfen, 'sydw' leibie, shiyedanwei.xingzhengjibie xingzhengjibie, sum(shiyedanwei.bianzhirenshu) bianzhirenshu, sum(shiyedanwei.shijirenshu) shiyourenshu
+		from orgnization left join shiyedanwei on orgnization.id = shiyedanwei.orgid
+		group by shengfen, leibie, xingzhengjibie)
+    </select>
+
+</mapper>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#00CAC9"
+    android:orientation="vertical" >
+      <ImageView android:layout_width="fill_parent"
+	      android:layout_height="wrap_content"
+	      android:src="@drawable/head"/>
+       <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:text="希望什么时候去呢？"/>
+        <Spinner android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:id="@+id/place_month"
+                android:entries="@array/dates"
+                android:prompt="@string/place_date"/>
+                
+         <Spinner android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/place_day"
+                android:entries="@array/days"
+                android:prompt="@string/place_day"/>
+          <Spinner android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:id="@+id/place_time"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:entries="@array/time"
+                android:prompt="@string/place_time"/>
+           <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:text="谁会去呢？"/>
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#00CAC9"
+                android:hint="姓名"/>
+             <EditText android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#00CAC9"
+                android:hint="电话"  />
+		      <Button
+		          android:id="@+id/order_submit"
+		          android:layout_width="100dp"
+		          android:layout_height="wrap_content"
+		          android:layout_gravity="center"
+		          android:layout_marginTop="20dp"
+		          android:background="#FFFFFF"
+		          android:textColor="#00CAC9"
+		          android:text="提交" />
+ 
+   
+</LinearLayout>
