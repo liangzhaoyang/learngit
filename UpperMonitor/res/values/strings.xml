@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">音乐播放器</string>
+    <string name="action_settings">Settings</string>
+    <string name="settings">设置</string>
+    <string name="ip_settings">服务器设置</string>
+    <string name="ip_default">192.168.185.1</string>
+    <string name="speech_settings">语音参数设置</string>
+    <string name="set_ip">setIp</string>
+    <string name="set_port">setPort</string>
+    <string name="port_default">6000</string>
+	<string
+		name="app_id">534919fc</string>
+	<string
+		name="text_login_fail">登录失败</string>
+	<string
+		name="text_iat">语音控制PPT</string>
+	<string 
+	    name="text_iat_stop">停止</string>
+	<string 
+	    name="text_iat_begin">请开始说话...</string>
+	<string
+		name="text_iat_demo">PPT控制</string>
+	<string
+		name="preference_key_iat_rate">iat_rate</string>
+	<string
+		name="preference_title_iat_rate">录音采样率</string>
+	<string-array
+		name="preference_entries_iat_rate">
+		<item>8K</item>
+		<item>16K</item>
+	</string-array>
+	<string-array
+		name="preference_values_iat_rate">
+		<item>rate8k</item>
+		<item>rate16k</item>
+	</string-array>
+	<string
+		name="preference_default_iat_rate">rate16k</string>
+	<string
+		name="preference_dialog_title_iat_rate">选择录音采样率</string>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/settings"
+    >
+    <PreferenceCategory
+        android:title="@string/ip_settings">
+        <EditTextPreference
+            android:title="服务器地址"
+            android:key="@string/set_ip"
+            android:dialogTitle="输入服务器IP地址值"
+            android:defaultValue="@string/ip_default"
+            android:positiveButtonText="@android:string/ok"
+            android:negativeButtonText="@android:string/cancel">            
+        </EditTextPreference>
+        <EditTextPreference
+            android:title="服务器端口"
+            android:key="@string/set_port"
+            android:dialogTitle="输入服务器IP端口值"
+            android:defaultValue="@string/port_default"
+            android:positiveButtonText="@android:string/ok"
+            android:negativeButtonText="@android:string/cancel">            
+        </EditTextPreference>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/speech_settings">
+        <ListPreference
+			android:key="@string/preference_key_iat_rate"
+			android:title="@string/preference_title_iat_rate"
+			android:entries="@array/preference_entries_iat_rate"
+			android:entryValues="@array/preference_values_iat_rate"
+			android:defaultValue="@string/preference_default_iat_rate"
+			android:dialogTitle="@string/preference_dialog_title_iat_rate" />        
+     </PreferenceCategory>  
+</PreferenceScreen>

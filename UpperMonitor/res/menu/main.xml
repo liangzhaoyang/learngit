@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/buzzer"
+        android:orderInCategory="100"
+        android:icon="@drawable/alarm"
+        android:title="报警"/>
+    <item
+        android:id="@+id/light"
+        android:orderInCategory="100"
+        android:icon="@drawable/light"
+        android:title="亮灯"/>
+	<item
+        android:id="@+id/about"
+        android:orderInCategory="100"
+        android:icon="@drawable/help"
+        android:title="关于"/>
+</menu>
