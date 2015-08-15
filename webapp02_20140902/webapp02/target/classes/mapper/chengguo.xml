@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="cn.xxs.dao.ChengguoDao">
+
+<!-- 简历录入 -->
+<insert id ="insertChengguo" parameterType="cn.xxs.entity.Chengguo"> 
+		insert into chengguo (id,personid,content)
+		values (#{id},#{personid},#{content})
+</insert>
+<!-- 简历修改 -->
+<update id ="updateChengguo" parameterType="cn.xxs.entity.Chengguo"> 
+		update chengguo set content=#{content}
+		where personid=#{personid}
+</update>
+<!-- 简历详情-->
+<resultMap type="cn.xxs.entity.Chengguo" id="Chengguo">
+	<result property="content" column="content"  typeHandler="cn.xxs.utility.MyBlobTypeHandler" />    
+  <result property="id" column="id" />
+  <result property="personid" column="personid" />
+ </resultMap>
+<select id="selectChengguoByPersonid" parameterType="Integer" resultMap="Chengguo">
+select * from chengguo where personid=#{id}
+</select>
+</mapper>

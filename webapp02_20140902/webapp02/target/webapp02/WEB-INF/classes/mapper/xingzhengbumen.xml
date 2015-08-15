@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.XingzhengBumenDao">
+      
+    <insert id="insertXingzhengBumen" parameterType="cn.xxs.entity.XingzhengBumen">
+    	insert into xingzhengbumen(id, orgid, name,bianzhirenshu,shijirenshu,xingzhengjibie) values(#{id},#{orgid},
+    	 #{name}, #{bianzhirenshu},#{shijirenshu},#{xingzhengjibie})
+    </insert>
+    
+    <delete id="deleteXingzhengBumen" parameterType="java.lang.Integer">
+    	delete from xingzhengbumen where id=#{id}
+    </delete>
+	
+	<update id="updateXingzhengBumen" parameterType="cn.xxs.entity.XingzhengBumen">
+		update xingzhengbumen set name= #{name},bianzhirenshu= #{bianzhirenshu},shijirenshu= #{shijirenshu},xingzhengjibie= #{xingzhengjibie}
+		where id= #{id}
+	</update>
+	
+	<select id="queryXingzhengBumen" resultType="cn.xxs.entity.XingzhengBumen">
+		select * from xingzhengbumen  
+	</select>
+	<select id="queryXingzhengBumenByOrg" parameterType="java.lang.Integer" resultType="cn.xxs.entity.XingzhengBumen">
+		select * from xingzhengbumen  where orgid= #{orgid}
+	</select>
+</mapper>

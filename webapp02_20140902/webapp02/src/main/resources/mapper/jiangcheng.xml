@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="cn.xxs.dao.JiangchengDao">
+
+<!-- 奖惩录入 -->
+<insert id ="insertJiangcheng" parameterType="cn.xxs.entity.Jiangcheng"> 
+		insert into jiangcheng (id,personid,content)
+		values (#{id},#{personid},#{content})
+</insert>
+<!-- 奖惩修改 -->
+<update id ="updateJiangcheng" parameterType="cn.xxs.entity.Jiangcheng"> 
+		update jiangcheng set content=#{content}
+		where personid=#{personid}
+</update>
+<!-- 奖惩详情-->
+<resultMap type="cn.xxs.entity.Jiangcheng" id="Jiangcheng">
+	<result property="content" column="content"  typeHandler="cn.xxs.utility.MyBlobTypeHandler" />    
+  <result property="id" column="id" />
+  <result property="personid" column="personid" />
+ </resultMap>
+<select id="selectJiangchengByPersonid" parameterType="Integer" resultMap="Jiangcheng">
+select * from jiangcheng where personid=#{id}
+</select>
+
+</mapper>

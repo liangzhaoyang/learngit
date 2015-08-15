@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/center_info"
+    android:orientation="vertical" >
+    <RelativeLayout android:layout_width="match_parent"
+        android:layout_marginTop="455px"
+        android:layout_height="96px"
+        android:layout_marginLeft="-10px"
+         android:layout_marginRight="-10px"
+        >
+    	<EditText android:id="@+id/person_center_advanse"
+				android:paddingLeft="70px"
+				android:saveEnabled="true" android:layout_width="fill_parent"
+				android:layout_height="96px"
+				
+				android:editable="false"
+				android:maxLength="20" 
+				android:layout_alignParentTop="true" 
+				/>
+    	 <TextView android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:id="@+id/person_center_advanceinfo"
+		        android:layout_alignLeft="@+id/person_center_advanse"
+		        android:layout_alignTop="@+id/person_center_advanse"
+		        android:layout_marginLeft="65px"
+		        android:layout_marginTop="20px"
+		        android:textColor="#FA7E6F"
+		        android:textSize="20sp"
+		        android:text="意见反馈"/>
+			<ImageView android:background="@drawable/btn_center_img"
+				android:gravity="center_vertical" android:id="@+id/person_info_img"
+				android:layout_width="34px"
+				android:layout_height="56px"
+				 android:layout_marginRight="32px"
+				 android:layout_marginTop="20px"
+				android:layout_alignRight="@+id/person_center_advanse"
+				android:layout_alignTop="@+id/person_center_advanse" />
+    </RelativeLayout>
+     <RelativeLayout android:layout_width="match_parent"
+         android:layout_marginTop="10px"
+         android:layout_marginLeft="-10px"
+         android:layout_marginRight="-10px"
+        android:layout_height="96px"
+        >
+    	<EditText android:id="@+id/person_center_copyright"
+				android:paddingLeft="70px"
+				android:saveEnabled="true" android:layout_width="fill_parent"
+				android:layout_height="96px"
+				android:editable="false"
+				android:gravity="right|center_vertical"
+				android:hint="人机交互实验室 " 
+				android:textColorHint="#B3B3B3"
+				android:layout_alignParentTop="true" 
+				
+				/>
+    	 <TextView android:layout_height="wrap_content"
+		        android:layout_width="wrap_content"
+		        android:id="@+id/person_center_copyrightinfo"
+		        android:layout_alignLeft="@+id/person_center_copyright"
+		        android:layout_alignTop="@+id/person_center_copyright"
+		        android:layout_marginLeft="65px"
+		        android:layout_marginTop="20px"
+		        android:textColor="#FA7E6F"
+		        android:textSize="20sp"
+		        android:text="版权声明"/>
+			
+    </RelativeLayout>
+  
+
+</LinearLayout>

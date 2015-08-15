@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.OrgnizationDao">
+<resultMap type="cn.xxs.entity.Orgnization" id="Orgnization">
+	<result property="jiuyeqingkuang" column="jiuyeqingkuang"  typeHandler="cn.xxs.utility.MyBlobTypeHandler" />  
+  <result property="id" column="id" />
+  <result property="orgname" column="orgname" />
+  <result property="suorgid" column="suorgid" />
+  <result property="chenglishijian" column="chenglishijian" />
+  <result property="xingzhengjibie" column="xingzhengjibie" />
+  <result property="jingfeilaiyuan" column="jingfeilaiyuan" />
+  <result property="zhengfuxulie" column="zhengfuxulie" />
+  <result property="jigouleibie" column="jigouleibie" />
+  <result property="status" column="status" />
+  <result property="shenheren" column="shenheren" />
+  <result property="tianbiaoren" column="tianbiaoren" />
+  <result property="tianbiaoriqi" column="tianbiaoriqi" />
+  <result property="deleteflag" column="deleteflag" />
+  <result property="bianzhishu" column="bianzhishu" />
+  <result property="renshu" column="renshu" />
+  <result property="zhuanzhiganbushu" column="zhuanzhiganbushu" />
+  <result property="xueshengshu" column="xueshengshu" />
+  <result property="jigoufenlei1" column="jigoufenlei1" />
+  <result property="jigoufenlei2" column="jigoufenlei2" />
+  <result property="baomiganbubianzhirenshu" column="baomiganbubianzhirenshu" />
+  <result property="shengfen" column="shengfen" />
+ </resultMap>
+ 
+	<!-- 组织操作 -->
+	<insert id="insertOrgnization" parameterType="cn.xxs.entity.Orgnization">
+		insert into
+		orgnization(id,orgname,suorgid,chenglishijian,xingzhengjibie,jingfeilaiyuan,zhengfuxulie,jigouleibie,status,shenheren,tianbiaoren,tianbiaoriqi)
+		values(#{id},#{orgname},#{suorgid},#{chenglishijian},#{xingzhengjibie},#{jingfeilaiyuan},#{zhengfuxulie},#{jigouleibie},#{status},#{shenheren},#{tianbiaoren},#{tianbiaoriqi});
+	</insert>
+
+	<update id="updateOrgnizationInfo" parameterType="cn.xxs.entity.Orgnization">
+		update orgnization
+		<set>
+			orgname= #{orgname},suorgid= #{suorgid},chenglishijian=#{chenglishijian},xingzhengjibie=#{xingzhengjibie},
+			jingfeilaiyuan=#{jingfeilaiyuan},zhengfuxulie=#{zhengfuxulie},jigouleibie=#{jigouleibie},jigoufenlei1=#{jigoufenlei1},
+			jigoufenlei2=#{jigoufenlei2},shengfen= #{shengfen},status= #{status},
+			<if test="bianzhishu != null and bianzhishu !=0">
+				bianzhishu = #{bianzhishu},
+			</if>
+			<if test="renshu != null and renshu !=0">
+				renshu = #{renshu},
+			</if>
+			<if test="zhuanzhiganbushu != null and zhuanzhiganbushu !=0">
+				zhuanzhiganbushu = #{zhuanzhiganbushu},
+			</if>
+			<if test="xueshengshu != null and xueshengshu !=0">
+				xueshengshu = #{xueshengshu},
+			</if>
+			<if test="jiuyeqingkuang != null and jiuyeqingkuang != '' ">
+				jiuyeqingkuang = #{jiuyeqingkuang},
+			</if>
+			<if test="baomiganbubianzhirenshu != null and baomiganbubianzhirenshu != 0 ">
+				baomiganbubianzhirenshu = #{baomiganbubianzhirenshu},
+			</if>
+			<if test="tianbiaoren !=null and tianbiaoren !=''">
+				tianbiaoren = #{tianbiaoren},
+			</if>
+			<if test="tianbiaoriqi !=null">
+				tianbiaoriqi = #{tianbiaoriqi}
+			</if>
+		</set>
+		where id= #{id}
+	</update>
+
+	<update id="setShenheInfo" parameterType="cn.xxs.entity.Orgnization">
+		update orgnization set
+		status= #{status},shenheren= #{shenheren} where id= #{id}
+	</update>
+	<!-- <select id="queryOrgnizationInfo" resultType="cn.xxs.entity.Orgnization"> 
+		select * from orgnization </select> -->
+	<select id="getOrgnizationById" parameterType="java.lang.Integer" resultMap="Orgnization">
+		select * from orgnization where id=#{id}
+	</select>
+	<!-- 获取待审计信息 -->
+	<select id="getDaiShenheInfoPage" parameterType="cn.xxs.entity.OrgnizationCondition"
+		resultMap="Orgnization">
+		<!-- orgname,chenglishijian,xingzhengjibie,jingfeilaiyuan,zhengfuxulie,jigouleibie -->
+		select * from orgnization
+		<where>
+			<if test="orgname !=null and orgname !=''">
+				AND orgname LIKE CONCAT(CONCAT('%', #{orgname, jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="jigouleibie !=null and jigouleibie !=0">
+				AND jigouleibie= #{jigouleibie}
+			</if>
+			<if test="chenglishijianFrom !=null">
+				<![CDATA[
+	        		AND chenglishijian > #{chenglishijianFrom}
+	        		]]>
+			</if>
+			<if test="chenglishijianTo !=null">
+				<![CDATA[
+	        		AND chenglishijian < #{chenglishijianTo}
+	        		]]>
+			</if>
+			<if test="xingzhengjibie !=null and xingzhengjibie !=0">
+				AND xingzhengjibie = #{xingzhengjibie}
+			</if>
+			<if test="jingfeilaiyuan !=null and jingfeilaiyuan !=''">
+				AND jingfeilaiyuan LIKE CONCAT(CONCAT('%', #{jingfeilaiyuan, jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="zhengfuxulie !=null and zhengfuxulie !=0">
+				AND zhengfuxulie= #{zhengfuxulie}
+			</if>
+			AND status=1
+		</where>
+		order by tianbiaoriqi
+	</select>
+	<!-- 获取机构基本信息 -->
+	<select id="queryJigouJibenInfoPage" parameterType="cn.xxs.entity.OrgnizationCondition"
+		resultMap="Orgnization">
+		<!-- orgname,jigouleibie,chenglishijian,xingzhengjibie,jingfeilaiyuan,zhengfuxulie,jigouleibie -->
+		select * from orgnization
+		<where>
+			<if test="orgname !=null and orgname !=''">
+				AND orgname LIKE CONCAT(CONCAT('%', #{orgname, jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="jigouleibie !=null  and jigouleibie !=0">
+				AND jigouleibie= #{jigouleibie}
+			</if>
+			<if test="chenglishijianFrom !=null">
+				<![CDATA[
+	        		AND chenglishijian > #{chenglishijianFrom}
+	        		]]>
+			</if>
+			<if test="chenglishijianTo !=null">
+				<![CDATA[
+	        		AND chenglishijian < #{chenglishijianTo}
+	        		]]>
+			</if>
+			<if test="xingzhengjibie !=null  and xingzhengjibie !=0">
+				AND xingzhengjibie = #{xingzhengjibie}
+			</if>
+			<if test="jingfeilaiyuan !=null and jingfeilaiyuan !=''">
+				AND jingfeilaiyuan LIKE CONCAT(CONCAT('%', #{jingfeilaiyuan, jdbcType=VARCHAR}),'%')
+			</if>
+			<if test="zhengfuxulie !=null and zhengfuxulie !=0">
+				AND zhengfuxulie= #{zhengfuxulie}
+			</if>
+		</where>
+		order by tianbiaoriqi
+	</select>
+
+	<select id="getOrgnizationByName" resultMap="Orgnization"
+		parameterType="String">
+		select * from orgnization where orgname = #{orgName}
+	</select>
+	
+	<!-- 按主管单位分类统计 -->
+	<select id="countBySuorgid" resultType="cn.xxs.entity.SuorgidCount">
+		select
+		b.orgname orgname,
+		count(*) count
+		from orgnization a left join orgnization b on a.suorgid=b.id
+		where a.suorgid is not null group by a.suorgid
+	</select>
+	<!-- 按行政级别分类统计 -->
+	<select id="countByXingzhengJibie" resultType="cn.xxs.entity.XingzhengJibieCount">
+		select
+		c.name xingzhengjibie,
+		count(*) count
+		from orgnization o left join constants c on c.type="行政级别"
+		where c.code=o.xingzhengjibie group by o.xingzhengjibie
+	</select>
+	<!-- 按机构类别分类统计 -->
+	<select id="countByJigouLeibie" resultType="cn.xxs.entity.JigouLeibieCount">
+		select
+		c.name jigouname,
+		count(*) count
+		from orgnization o left join constants c on c.type="机构类别"
+		where c.code=o.jigouleibie group by o.jigouleibie
+	</select>
+
+</mapper>

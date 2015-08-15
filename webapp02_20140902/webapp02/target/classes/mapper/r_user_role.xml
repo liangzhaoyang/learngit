@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.R_User_RoleDao">
+
+	<insert id="insertR_User_Role" parameterType="cn.xxs.entity.R_User_Role">
+		insert r_user_role (userid, roleid)
+		values(#{userId},#{roleId})
+	</insert>
+	
+	<delete id="deleteRoleByUserId" parameterType="String">
+		delete from r_user_role where userid=#{userId, jdbcType=VARCHAR}
+	</delete>
+
+</mapper>

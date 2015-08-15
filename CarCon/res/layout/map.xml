@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <com.baidu.mapapi.map.MapView
+        android:id="@+id/geocoder_bmapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/geocoder_et_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="北京" />
+
+        <EditText
+            android:id="@+id/geocoder_et_geocodekey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="海淀区上地十街10号" />
+
+        <Button
+            android:id="@+id/geocoder_btn_geocode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Geo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/geocoder_et_lat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="39.904965" />
+
+        <EditText
+            android:id="@+id/geocoder_et_lon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="116.327764" />
+
+        <Button
+            android:id="@+id/geocoder_btn_reversegeocode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ReverseGeo" />
+    </LinearLayout>
+    <Button
+            android:id="@+id/map_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="确定" />  
+
+</LinearLayout>

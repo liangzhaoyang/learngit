@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/dataview" >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+		<ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/more" />
+		<TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="#00CAC9"
+            android:textSize="18sp"
+            android:text="保养日历"/>
+        <ImageButton
+            android:id="@+id/mileage_setup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="140dp"
+            android:background="@drawable/setup" />
+
+        
+    </LinearLayout>
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical">
+        <ImageView android:layout_width="fill_parent"
+			      android:layout_height="wrap_content"
+			      android:src="@drawable/time"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/weekday"
+                  android:layout_gravity="center"
+                  android:textSize="36sp"
+                  android:text="Thursday"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="fill_parent"
+	                  android:layout_height="wrap_content"
+	                  android:orientation="horizontal"	>
+        <ImageView android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:layout_marginLeft="40dp"
+			      android:src="@drawable/forward"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/month"
+                  android:layout_marginLeft="30dp"
+                  android:textSize="24sp"
+                  android:text="MARCH"/>
+        <ImageView android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:src="@drawable/next"
+			      android:layout_marginLeft="30dp"/>    
+        </LinearLayout>
+           
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+     	<CalendarView
+     	    android:layout_width="fill_parent"
+     	    android:layout_height="200dp"
+     	    android:layout_marginTop="10dp" 
+     	    android:id="@+id/calendar">
+</CalendarView>
+         <ImageView android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:layout_marginTop="20dp"
+			      android:src="@drawable/handle_up"
+			      android:layout_gravity="center"/>       
+    </LinearLayout>
+</LinearLayout>

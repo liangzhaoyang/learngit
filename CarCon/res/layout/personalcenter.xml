@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E6E6E6" >
+		<LinearLayout android:id="@+id/centerRelativeLayout1"
+			android:layout_width="fill_parent"
+			android:layout_height="143px" 
+			android:layout_marginTop="40px"
+			android:paddingLeft="60px"
+			android:paddingRight="60px"
+			android:gravity="center_vertical"
+			android:background="#FFFFFF"
+			>
+			<TextView android:id="@+id/center_headtext"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:textSize="20sp"
+			    android:textColor="#00CAC9"
+			    android:text="头像"/>
+			<ImageView android:id="@+id/center_Img" android:src="@drawable/center_img"
+				android:layout_width="120px"
+				android:layout_height="120px"
+				android:layout_marginLeft="340px"
+				 />
+			<ImageView android:id="@+id/center_change_Img" android:background="@drawable/btn_center_img"
+				android:layout_width="12px"
+				android:layout_height="30px"
+				android:layout_marginLeft="30px" />
+			</LinearLayout>
+			
+			<RelativeLayout android:id="@+id/centerRelativeLayout2"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" 
+			android:gravity="center_vertical"
+			>
+			<EditText android:id="@+id/center_name"
+				android:layout_width="fill_parent"
+				android:layout_height="96px"
+				android:text="王大锤"
+				android:gravity="right|center_vertical"
+				android:paddingRight="60px"
+				/>
+			<TextView android:id="@+id/center_nametext"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+				android:layout_alignTop="@+id/center_name"
+				android:layout_alignLeft="@+id/center_name"
+				android:layout_alignBottom="@+id/center_name"
+				android:layout_marginLeft="60px"
+				android:layout_marginTop="20px"
+			    android:textSize="20sp"
+			    android:textColor="#00CAC9"
+			    android:text="姓名"/>
+			
+			<EditText android:id="@+id/center_tel"
+				android:layout_width="fill_parent"
+				android:layout_height="96px" 
+				android:layout_below="@+id/center_name"
+				android:layout_marginTop="-15px"
+				android:text="1861234567"
+				android:gravity="right|center_vertical"
+				android:paddingRight="60px"
+				android:phoneNumber="true"/>	
+			<TextView android:id="@+id/center_teltext"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			  	android:layout_alignTop="@+id/center_tel"
+				android:layout_alignLeft="@+id/center_tel"
+				android:layout_alignBottom="@+id/center_tel"
+			    android:layout_marginLeft="60px"
+			    android:layout_marginTop="20px"
+			    android:textSize="20sp"
+			    android:textColor="#00CAC9"
+			    android:text="电话"/>
+
+		
+			<EditText android:id="@+id/center_address"
+			    	  android:layout_width="fill_parent"
+					  android:layout_height="96px"
+					  android:layout_below="@+id/center_tel"
+					  android:gravity="right|center_vertical"
+					  android:layout_marginTop="-15px"
+					  android:paddingRight="60px"
+					  android:hint="请输入您的地址"/>
+			<TextView android:id="@+id/center_addresstext"
+			    	  android:layout_width="wrap_content"
+					  android:layout_height="wrap_content"
+					  android:layout_alignLeft="@+id/center_address"
+					  android:layout_alignTop="@+id/center_address"
+					  android:layout_alignBottom="@+id/center_address"
+					  android:layout_marginLeft="60px"
+					  android:layout_marginTop="20px"
+					  android:textSize="20sp"
+				      android:textColor="#00CAC9"
+				      android:text="地址"
+					  />
+			
+			<EditText android:id="@+id/center_brand"
+			    	  android:layout_width="fill_parent"
+					  android:layout_height="96px"
+					  android:layout_below="@+id/center_address"
+					  android:layout_marginTop="40px"
+					  android:gravity="right|center_vertical"
+					  android:paddingRight="60px"
+					  android:hint="请输入您爱车的品牌"/>
+			<TextView android:id="@+id/center_brandtext"
+			    	  android:layout_width="wrap_content"
+					  android:layout_height="wrap_content"
+					  android:layout_alignLeft="@+id/center_brand"
+					  android:layout_alignTop="@+id/center_brand"
+					  android:layout_alignBottom="@+id/center_brand"
+					  android:layout_marginLeft="60px"
+					  android:layout_marginTop="20px"
+					  android:textSize="20sp"
+				      android:textColor="#00CAC9"
+				      android:text="品牌"
+					  />
+		
+			<EditText android:id="@+id/center_type"
+			    	  android:layout_width="fill_parent"
+					  android:layout_height="96px"
+					  android:layout_below="@+id/center_brand"
+					  android:layout_marginTop="-15px"
+					  android:gravity="right|center_vertical"
+					  android:paddingRight="60px"
+					  android:hint="请输入您爱车的型号"/>
+			<TextView android:id="@+id/center_typetext"
+			    	  android:layout_width="wrap_content"
+					  android:layout_height="wrap_content"
+					  android:layout_alignLeft="@+id/center_type"
+					  android:layout_alignTop="@+id/center_type"
+					  android:layout_alignBottom="@+id/center_type"
+					  android:layout_marginLeft="60px"
+					  android:layout_marginTop="20px"
+					  android:textSize="20sp"
+				      android:textColor="#00CAC9"
+				      android:text="车型"
+					  />
+			
+			<EditText android:id="@+id/center_code"
+			    	  android:layout_width="fill_parent"
+					  android:layout_height="96px"
+					  android:layout_below="@+id/center_type"
+					  android:layout_marginTop="-15px"
+					  android:gravity="right|center_vertical"
+					  android:paddingRight="60px"
+					  android:hint="请输入您爱车的牌照"/>
+			<TextView android:id="@+id/center_codetext"
+			    	  android:layout_width="wrap_content"
+					  android:layout_height="wrap_content"
+					  android:layout_alignLeft="@+id/center_code"
+					  android:layout_alignTop="@+id/center_code"
+					  android:layout_alignBottom="@+id/center_code"
+					  android:layout_marginLeft="60px"
+					  android:layout_marginTop="20px"
+					  android:textSize="20sp"
+				      android:textColor="#00CAC9"
+				      android:text="车型号"
+					  />
+			</RelativeLayout>
+			
+					
+			<Button android:id="@+id/center_complete"
+			    	android:layout_width="360px"
+					android:layout_height="96px"
+					android:layout_marginTop="40dp"
+			    	android:layout_gravity="center"
+			    	android:background="@drawable/btn_center_complete"
+			    	/>
+		
+		
+</LinearLayout>

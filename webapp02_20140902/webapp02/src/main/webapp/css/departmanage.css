@@ -1,0 +1,296 @@
+@charset "utf-8";
+/** 页面主体 */
+
+
+.bg_include{
+
+	background-color: #f2f9fe;
+}
+
+.bg_contentTop{/*内容区顶部背景*/
+	background-image:url(../images/bg_content.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+	background-color: #f2f9fe;
+}
+
+img {
+	border: 0px;	
+}
+a {
+	color: #3D4B50;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+a, a:link, a:visited {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:hover, a:active {
+	text-decoration: underline;
+	font-family: Arial, Helvetica, sans-serif;
+	color: FFCC00;
+}
+
+table{
+	border-collapse: collapse;
+	
+}
+
+
+/**页面开头导航 */
+.headerTabel {
+	width: 95%;
+	border: 0px;
+	height: 26px
+}
+
+.headerNavgation {
+	width: 40%;
+	height: 26px;
+	nowrap: nowrap;
+	font-size: 10pt;
+	
+}
+
+.headerNavgationImg {
+	width: 14px;
+	height: 14px;
+}
+
+/** action错误信息 样式*/
+.actionErrorMsg {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #ff0000;
+	/*font-weight: bold;*/
+	padding: 0.1em;
+	/*font-style: italic;*/
+	/*text-decoration: blink;*/
+	margin:0px;
+}
+
+/** action警告信息样式 */
+.actionWarnMsg {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #ff0000;
+	/*font-weight: bold;*/
+	padding: 0.1em;
+	/*font-style: italic;*/
+	margin:0px;
+}
+
+.actionInfoMsg {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #ff0000;
+	/*font-weight: bold;*/
+	padding: 0.1em;
+	/*font-style: italic;*/
+	margin:0px;
+}
+
+.filedError {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #ff0000;
+	font-weight: normal;
+	padding: 0.1em;
+	/*font-style: italic;*/
+	margin:0px;
+	
+}
+
+.headerHr {
+	 width: 97%;
+	 align: center;
+	 size: 0px
+}
+
+
+/** FieldSet Style **/
+/**fieldset{
+	color:#3D4B50 ;
+	border: 1px solid #808054;
+	font-weight: bold;
+	padding: 0.1em;
+	font-size: 11pt;
+}
+*/
+/**列表页面样式*/
+.tableList {
+	border-collapse:collapse;
+	margin-left: 5px;
+}
+
+.tableList TD  {
+	border:1px solid #a0a0a0;
+	font-size: 10pt
+}
+
+/** 列表表头样式 */
+.tableHeader {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	background-color: #C2DCF5;/**#ccccc5;*/
+	text-align: center;
+	font-weight:bold;
+	color:#3152A8;
+	
+}
+
+/** 列表数据区样式 */
+.tableBody1_1 {
+	background-color: #FFFFFF;
+	border: 1px solid #50433d;/**#808054;*/
+	padding: 0.1em;
+	color: #50433d;
+}
+
+.tableBody1_1 td{
+	word-WRAP: break-word;
+}
+
+.tableRows1_2 {
+	background-color:#F9FAFC;
+	text-overflow:ellipsis;
+	empty-cells:show;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+	color: #000000;
+}
+
+
+/** 翻页信息样式 */
+.pagination {
+	font-family: verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	color: #000000;
+}
+
+
+
+
+
+
+.formTable {
+	table-layout: fixed;
+}
+
+.formTdLeft {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: right;
+}
+
+.formTdRight {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+}
+
+/** 按钮样式 */
+.button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #000000;/*#50433d;*/
+	height: 24px;
+	text-align: center;
+	margin: 0.1em;
+	/*border-color: #50433d;*/
+}
+
+/** 输入框样式 */
+.input{
+	width: 80%;
+	font-size: 10pt;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #808054;
+	overflow: hidden;
+}
+
+/** 文本域样式 */
+.textArea {
+	scrollbar-arrow-color: #808054; /* 滚动条上下箭头 */
+	scrollbar-face-color: #cacca2; /* 滚动条颜色 */
+	scrollbar-track-color: #f0f0dc; /* 滚动条背景色 */
+	scrollbar-3dlight-color: #e3e3c7; /* 滚动条左与上外边框 */
+	scrollbar-highlight-color: #FFFFFF; /* 滚动条左与上内边框 */
+	scrollbar-shadow-color: #b0b075; /* 滚动条右与下外边框 */
+	scrollbar-darkshadow-color: #808054; /* 滚动条阴影 */
+	scrollbar-base-color: #FFFFFF; /* 滚动条基色 */
+	height: 100px;
+	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	line-height: 1em;
+	color: #000000;
+	font-weight: normal;
+	border: 1px solid #808054;
+	word-break:break-all;
+}
+
+/**文件选择页样式 */
+.fileUpload {
+	font-size: 10pt;
+	color: #50433d;
+	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #808054;
+}
+
+/**单选框样式 */
+.radio {
+	border-collapse:collapse;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #50433d;
+}
+
+/** 复选框样式 */
+.checkBox {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+	color: #50433d;
+}
+
+/** 下拉选择框样式 */
+.select {
+	width:100%;
+	font-size: 10pt;
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	border: 1px solid #808054;
+}
+
+.buttonTable {
+	text-align: right;
+	width: 98%;
+}
+
+.pagerTable {
+	text-align: right;
+	width: 98%;
+}
+
+.fileType {
+	color: #05AACE;    
+	font-size: 10pt;
+}
+/*自评估按钮样式*/
+.btn_mouseout {
+ 	height:25px; #2C59AA 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #2C59AA 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BORDER-LEFT: #2C59AA 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2C59AA 1px solid
+}
+.btn_mouseover {
+ 	height:25px;BORDER-RIGHT: #2C59AA 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #2C59AA 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#D7E7FA); BORDER-LEFT: #2C59AA 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2C59AA 1px solid 
+}
+.btn_mousedown
+{
+ 	height:25px;BORDER-RIGHT: #FFE400 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #FFE400 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BORDER-LEFT: #FFE400 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #FFE400 1px solid
+}
+.btn_mouseup {
+ 	height:25px;BORDER-RIGHT: #2C59AA 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #2C59AA 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 12px; FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); BORDER-LEFT: #2C59AA 1px solid; CURSOR: hand; COLOR: black; PADDING-TOP: 2px; BORDER-BOTTOM: #2C59AA 1px solid
+}

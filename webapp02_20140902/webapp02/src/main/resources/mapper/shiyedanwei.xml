@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.ShiyeDanweiDao">
+      
+    <insert id="insertShiyeDanwei" parameterType="cn.xxs.entity.ShiyeDanwei">
+    	insert into shiyedanwei(id, orgid, name,bianzhirenshu,shijirenshu,xingzhengjibie) values(#{id},#{orgid},
+    	 #{name}, #{bianzhirenshu},#{shijirenshu},#{xingzhengjibie})
+    </insert>
+    
+    <delete id="deleteShiyeDanwei" parameterType="java.lang.Integer">
+    	delete from shiyedanwei where id=#{id}
+    </delete>
+	
+	<update id="updateShiyeDanwei" parameterType="cn.xxs.entity.ShiyeDanwei">
+		update shiyedanwei set name= #{name},bianzhirenshu= #{bianzhirenshu},shijirenshu= #{shijirenshu},xingzhengjibie= #{xingzhengjibie}
+		where id= #{id}
+	</update>
+	
+	<select id="queryShiyeDanwei" resultType="cn.xxs.entity.ShiyeDanwei">
+		select * from shiyedanwei  
+	</select>
+	<select id="queryShiyeDanweiByOrg" parameterType="java.lang.Integer" resultType="cn.xxs.entity.ShiyeDanwei">
+		select * from shiyedanwei  where orgid= #{orgid}
+	</select>
+</mapper>

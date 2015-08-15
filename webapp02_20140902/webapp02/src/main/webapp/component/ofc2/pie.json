@@ -1,0 +1,24 @@
+{
+"bg_colour": "#ffffff",
+
+  "title":{
+    "text":"大饼一个，哈！aaa",
+    "style":"{font-size: 30px;}"
+  },
+
+  "elements":[
+    {
+      "type":      "pie",
+      "colours":   ["#d01f3c","#356aa0","#C79810","#334455"],
+      "alpha":     0.6,
+      "border":    2,
+      "start-angle": -90,
+      "values" :   [
+        2,
+        3,
+        {"value":6.5,"label":"六点五", "tip":"99 bottles of beer","on-click":"http://eden"},
+        {"value":6.5,"on-click":"my_function"}
+      ]
+    }
+  ]
+}

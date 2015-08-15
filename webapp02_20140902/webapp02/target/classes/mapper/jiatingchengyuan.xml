@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="cn.xxs.dao.JiatingChengyuanDao">
+
+<!-- 简历录入 -->
+<insert id ="insertJiatingChengyuan" parameterType="cn.xxs.entity.JiatingChengyuan"> 
+		insert into jiatingchengyuan (id,personid,chengwei,xingming,chushengnianfen,zhengzhimianmao,gongzuodanweijizhiwu)
+		values (#{id},#{personid},#{chengwei},#{xingming},#{chushengnianfen},#{zhengzhimianmao},#{gongzuodanweijizhiwu})
+</insert>
+<!-- 简历修改 -->
+<update id ="updateJiatingChengyuan" parameterType="cn.xxs.entity.JiatingChengyuan"> 
+		update jiatingchengyuan set chengwei=#{chengwei},xingming=#{xingming},chushengnianfen=#{chushengnianfen},zhengzhimianmao=#{zhengzhimianmao},gongzuodanweijizhiwu=#{gongzuodanweijizhiwu}
+		where id = #{id}
+</update>
+<!-- 简历详情-->
+<select id="selectJiatingChengyuanByPersonid" parameterType="Integer" resultType="cn.xxs.entity.JiatingChengyuan">
+select * from jiatingchengyuan where personid=#{id}
+</select>
+</mapper>

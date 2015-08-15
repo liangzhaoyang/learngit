@@ -1,0 +1,82 @@
+body {
+	background-color: #EDF2FC;
+	font-family: "ËÎÐÝ";
+	font-size: 12px;
+	color: #000;
+	text-decoration: none;
+}
+  
+.datalist {
+	border: 1px solid #429fff; 
+	font-family: Arial;
+	border-collapse: collapse;  
+	width: 100%;
+} 
+.datalist th {
+	border: 1px solid #429fff;  
+	background-color: #e4f5ff;
+	font-weight: normal;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 12px;
+	color: #000;
+	text-decoration: none; 
+}
+
+.datalist tr {  
+	background-color: #ffffff;
+}
+.datalist td {
+	border: 1px solid #429fff; 
+	text-align: left;
+	padding: 4px;
+	font-size: 12px;
+}
+.datainput {
+	height: 15px;
+	border: 0px solid #7f9db9;
+	background-color: #FFF;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0pt;
+	padding-left: 0px;
+}
+.no-border {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.textXZZD {
+	background-color:Transparent;
+	border-bottom:solid 1px #000000;
+	border-left-width:0px;
+	border-right-width:0;
+	border-top-width:0;
+	font-family: "ËÎÐÝ";
+	font-size:12px; 
+}
+.datagrid-mask{
+	position:absolute;
+	left:0;
+	top:0;
+	background:#ccc;
+	opacity:0.3;
+	filter:alpha(opacity=30);
+	display:none;
+}
+.datagrid-mask-msg{
+	position:absolute;
+	cursor1:wait;
+	left:100px;
+	top:50px;
+	width:auto;
+	height:16px;
+	padding:12px 5px 10px 30px;
+	background:#fff url('pagination_loading.gif') no-repeat scroll 5px 10px;
+	border:2px solid #6593CF;
+	color:#222;
+	display:none;
+}

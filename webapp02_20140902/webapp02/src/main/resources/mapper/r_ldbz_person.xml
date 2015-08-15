@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="cn.xxs.dao.R_ldbz_personDao">
+
+	<!-- 删除对应关系 -->  
+     <delete id="deleter_ldbz_person" parameterType="java.lang.Integer">  
+        delete from R_ldbz_person  
+        <where>  
+          personid = #{personid} and orgid = #{orgid}
+        </where> 
+    </delete>
+<!-- 新建 -->
+<insert id="insertr_ldbz_person" parameterType="java.lang.Integer" >
+    
+    insert into r_ldbz_person (orgid,personid) values (#{orgid},#{personid})
+    
+    
+    </insert>
+</mapper>

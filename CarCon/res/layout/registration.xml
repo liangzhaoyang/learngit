@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/signup"
+    android:orientation="vertical" >
+        <EditText android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginTop="200dp"
+                  android:layout_marginLeft="25.0dip"
+                  android:layout_marginRight="25.0dip"
+                  android:hint="账号"
+                  android:id="@+id/signName"/>
+
+        <EditText android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginLeft="25.0dip"
+                  android:layout_marginRight="25.0dip"
+                  android:password="true"
+                  android:hint="密码"
+                  android:id="@+id/signPsd"/>
+        
+        <EditText android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginLeft="25.0dip"
+                  android:layout_marginRight="25.0dip"
+                  android:password="true"
+                  android:hint="确认密码"
+                  android:id="@+id/signComfirPsd"/>
+        
+        <EditText android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center"
+                  android:layout_marginLeft="25.0dip"
+                  android:layout_marginRight="25.0dip"
+                  android:hint="手机号码"
+                  android:phoneNumber="true"
+                  android:id="@+id/signTel"/>
+        <Button
+            android:id="@+id/signUpbtn"
+            android:layout_width="360px"
+            android:layout_height="96px"
+            android:background="#FF0000"
+            android:layout_marginTop="60dp"
+            android:layout_gravity="center_horizontal"
+            android:text="注册" />
+</LinearLayout>

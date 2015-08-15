@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="cn.xxs.dao.LeaderPersonDao"   >
+
+<select 
+			id="selectLeaderPerson" parameterType="map" resultType="cn.xxs.entity.Person">
+			select
+			Person.id id,
+			Person.orgid orgid,
+			Person.zhiwu zhiwu,
+			Person.name name,
+			Person.xingbie xingbie,
+			Person.minzu minzu,
+			Person.chushengnianyue chushengnianyue,
+			Person.xueli xueli,
+			Person.zhengzhimianmao lzhengzhimianmao,
+			Person.zhuanye zhuanye,
+			Person.xingzhengjibie xingzhengjibie,
+			Person.jishuzhicheng jishuzhicheng,
+			Person.renmingdanwei renmingdanwei,
+			Person.shifouzhuanzhi shifouzhuanzhi,
+			Person.jianrenqitazhiwu jianrenqitazhiwu,
+			Person.kaishiriqi kaishiriqi,
+			Person.suoshubumen suoshubumen,
+			Person.danweimingcheng danweimingcheng,
+			Person.tel tel,
+			Person.mobilenum mobilenum,
+			leader.shenheren shenheren,
+			leader.tianbiaoren tianbiaoren,
+			leader.tianbiaoriqi tianbiaoriqi
+			from lingdaobanzijigongzuorenyuan leader ,R_ldbz_person lp ,person
+			<where> 
+			<if test="orgid !=null ">  
+            	leader.id=lp.ldbzid and lp.personid=person.id and leader.orgid=#{orgid, jdbcType=INTEGER}
+	        </if> 
+	         
+			<if test="name !=null ">  
+            	and person.name LIKE CONCAT(CONCAT('%', #{name, jdbcType=VARCHAR}),'%')  
+	        </if>  
+	        <if test="xingbie != null and xingbie != '' ">  
+	          	and Person.xingbie = #{xingbie, jdbcType=INTEGER}  
+	        </if>  
+	       <if test="chushengnianyueFrom!= null">
+				<![CDATA[
+	        		AND chushengnianyue >= #{chushengnianyueFrom}
+	        		]]>
+			</if>
+			<if test="chushengnianyueTo!= null">
+				<![CDATA[
+	        		AND chushengnianyue <= #{chushengnianyueTo}
+	        		]]>
+			</if>
+	        <if test="zhengzhimianmao != null and zhengzhimianmao!= '' ">  
+	            and Person.zhengzhimianmao = #{zhengzhimianmao, jdbcType=INTEGER}  
+	        </if>  
+	        <if test="zhuanye!= null and zhuanye !=' ' ">  
+	            and Person.zhuanye= #{zhuanye, jdbcType=VARCHAR}  
+	        </if>  
+	        <if test="shifouzhuanzhi != null and shifouzhuanzhi != '' ">  
+	            and Person.shifouzhuanzhi = #{shifouzhuanzhi, jdbcType=INTEGER}  
+	        </if>  
+	         <if test="suoshubumen != null and suoshubumen != '' ">  
+	            and Person.suoshubumen LIKE CONCAT(CONCAT('%', #{suoshubumen, jdbcType=VARCHAR}),'%')
+	        </if>  
+	        <if test="danweimingcheng != null and danweimingcheng != '' ">  
+	            and Person.danweimingcheng LIKE CONCAT(CONCAT('%', #{danweimingcheng, jdbcType=VARCHAR}),'%')  
+	        </if> 
+	</where>  
+	</select>
+	
+	
+	<select 
+			id="selectSpId" parameterType="java.lang.String" resultType="java.lang.String">
+			select shemiid from r_shemi_person where personid = #{id}
+	</select>
+	
+	<!--删除领导班子信息 --> 
+	<delete id="deleteLeader" parameterType="java.lang.String">  
+        delete from lingdaobanzijigongzuorenyuan
+        <where>  
+          id = #{id}
+        </where>  
+        </delete>
+       <!--  <delete id= "deleteLeader" parameterType= "java.lang.String">
+        <![CDATA[  
+       delete 
+       from lingdaobanzijigongzuorenyuan where id in
+       ]]>
+       <foreach collection="[array]" item= "ids" 
+            open= "(" close =")" separator=",">
+            #{ids}
+       </foreach >
+       </delete >-->
+    
+    
+	</mapper>

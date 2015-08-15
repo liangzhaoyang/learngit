@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.RoleDao">
+      
+    <insert id="insertRole" parameterType="cn.xxs.entity.Role">
+    	insert into role(id, name, description) values(#{id}, #{name}, #{description})
+    </insert>
+    
+    <select id="searchByCondition" parameterType="map" resultType="cn.xxs.entity.Role">
+    	select * from role
+    	where 
+    	<if test="name != null">
+    		name like '%${name}%'
+    	</if>
+    	<if test="description != null">
+    		and description like '%${description}%'
+    	</if>
+    	<if test="order != null">
+    		order by ${order}
+    	</if>
+    </select>
+
+    <select id="queryRolesByUserId" parameterType="java.lang.String" resultType="cn.xxs.entity.Role">  
+        select * from Role left join r_user_role on role.id=r_user_role.roleid where r_user_role.userid=#{userId, jdbcType=VARCHAR}  
+    </select>  
+    
+    <select id="searchFuzzy" parameterType="map" resultType="cn.xxs.entity.Role">
+    	select * from Role where name like '%$str$%' or description like '%$str$%'
+    	<if test="start != null">
+    		limit ${start}
+    	</if>
+    	<if test="size != null">
+    		, ${size}
+    	</if>
+    </select>
+    
+    <select id="getAllRoles" resultType="cn.xxs.entity.Role">
+    	select * from role
+    </select>
+</mapper>

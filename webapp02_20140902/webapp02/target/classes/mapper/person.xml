@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xxs.dao.PersonDao">
+     
+     <select id="getPeopleByOrgnizationIdPage" parameterType="java.lang.Integer" resultType="cn.xxs.entity.Person">  
+        select * from person where orgid= #{orgid}
+    </select>  
+    
+    <select id="getPersonById" parameterType="java.lang.Integer" resultType="cn.xxs.entity.Person">  
+        select * from person where id=#{id}  
+    </select> 
+    
+    <!-- 查询条件:姓名、出生年月（范围）、政治面貌、学历、学历（范围）、行政级别（范围）、专业-->  
+	<select id="getPersonByConditionPage" parameterType="cn.xxs.entity.PersonCondition" resultType="cn.xxs.entity.Person">  
+	<!-- name,xingbie,chushengnianyue,zhengzhimianmao,xueli,xingzhengjibie,zhuanye,shifouzhuanzhi,suoshubumen,danweimingcheng -->
+	    SELECT * from person  
+	    <where>
+	        <if test="name!=null and name!='' ">  
+	            AND name LIKE CONCAT(CONCAT('%', #{name, jdbcType=VARCHAR}),'%')
+	        </if> 
+			<if test="chushengnianyueFrom!= null">
+				<![CDATA[
+	        		AND chushengnianyue > #{chushengnianyueFrom}
+	        		]]>
+			</if>
+			<if test="chushengnianyueTo!= null">
+				<![CDATA[
+	        		AND chushengnianyue < #{chushengnianyueTo}
+	        		]]>
+			</if>
+	        <if test="zhengzhimianmao!=null and zhengzhimianmao!=0">  
+	            AND zhengzhimianmao = #{zhengzhimianmao}  
+	        </if> 
+	
+	        <if test="xueliFrom!=null and xueliFrom!=0">
+	        	AND xueli > #{xueliFrom}
+	        </if>
+	        <if test="xueliTo!=null and xueliTo!=0">
+	        	<![CDATA[
+	        	AND xueli < #{xueliTo}
+	        	]]>
+	        </if>
+	     
+	        <if test="xingzhengjibieFrom!=null and xingzhengjibieFrom!=0">
+	        	AND xingzhengjibie > #{xingzhengjibieFrom}
+	        </if>
+	        <if test="xingzhengjibieTo!=null and xingzhengjibieTo!=0">
+	        	<![CDATA[
+	        		AND xingzhengjibie < #{xingzhengjibieTo}
+	        		]]>
+	        </if>
+
+	        <if test="zhuanye!=null and zhuanye!=''">  
+	            AND zhuanye = #{zhuanye}  
+	        </if>  
+	        <if test="orderinfo!=null and orderinfo!=''">  
+	            ORDER BY ${orderinfo}  
+		    </if> 
+		    
+		    <if test="orderinfo==null or orderinfo==''">  
+		            ORDER BY xingzhengjibie,name  
+		    </if>      
+	    </where> 
+	    
+	</select>  
+	
+  <update id="updatePerson" parameterType="cn.xxs.entity.Person">  
+        update person set minzu= #{minzu},zhiwu = #{zhiwu},name = #{name},xingbie = #{xingbie},chushengnianyue = #{chushengnianyue},
+         xueli = #{xueli}, zhengzhimianmao = #{zhengzhimianmao},zhuanye = #{zhuanye},xingzhengjibie = #{xingzhengjibie},
+         jishuzhicheng = #{jishuzhicheng},renmingdanwei = #{renmingdanwei},shifouzhuanzhi = #{shifouzhuanzhi},jianrenqitazhiwu = #{jianrenqitazhiwu},
+         kaishiriqi = #{kaishiriqi},suoshubumen = #{suoshubumen},danweimingcheng = #{danweimingcheng},tel = #{tel},mobilenum = #{mobilenum},
+         shemidengji= #{shemidengji}, yaohaibumengrenyuan= #{yaohaibumengrenyuan},renyuanleixing= #{renyuanleixing} 
+        where id=#{id}
+    </update> 
+
+    <insert id="insertPerson" parameterType="cn.xxs.entity.Person">
+    	insert into person(id, orgid, zhiwu,name,xingbie,chushengnianyue,xueli,zhengzhimianmao,
+    	zhuanye,xingzhengjibie,jishuzhicheng,renmingdanwei,shifouzhuanzhi,jianrenqitazhiwu,kaishiriqi,
+    	suoshubumen,danweimingcheng,tel,mobilenum,shemidengji,yaohaibumengrenyuan,renyuanleixing,minzu) values(#{id}, #{orgid}, #{zhiwu},#{name},#{xingbie},#{chushengnianyue},#{xueli},#{zhengzhimianmao},
+    	#{zhuanye},#{xingzhengjibie},#{jishuzhicheng},#{renmingdanwei},#{shifouzhuanzhi},#{jianrenqitazhiwu},#{kaishiriqi},
+    	#{suoshubumen},#{danweimingcheng},#{tel},#{mobilenum},#{shemidengji},#{yaohaibumengrenyuan},#{renyuanleixing},#{minzu}) 
+    </insert>
+     <!--  干部条件查询-->
+    <select 
+			id="selectGanbuPersonPage" parameterType="cn.xxs.entity.PersonCondition" resultType="Map">
+			select
+			person.*
+			from person left join R_ganbu_person gp on gp.personid=person.id 
+			<where> 
+			<if test="orgid !=null ">  
+            	gp.orgid=#{orgid} 
+	        </if> 
+	        
+			<if test="name !=null ">  
+            	and person.name LIKE CONCAT(CONCAT('%', #{name, jdbcType=VARCHAR}),'%')  
+	        </if>  
+	        <if test="xingbie != null and xingbie != ''and xingbie !=7  ">  
+	          	and Person.xingbie = #{xingbie, jdbcType=INTEGER}  
+	        </if>  
+	       <if test="chushengnianyueFrom!= null">
+				<![CDATA[
+	        		AND chushengnianyue >= #{chushengnianyueFrom}
+	        		]]>
+			</if>
+			<if test="chushengnianyueTo!= null">
+				<![CDATA[
+	        		AND chushengnianyue <= #{chushengnianyueTo}
+	        		]]>
+			</if>
+	        <if test="zhengzhimianmao != null and zhengzhimianmao!= '' and zhengzhimianmao !=7">  
+	            and Person.zhengzhimianmao = #{zhengzhimianmao, jdbcType=INTEGER}  
+	        </if>  
+	        <if test="zhuanye!= null and zhuanye !=''">  
+	            and Person.zhuanye like CONCAT(CONCAT('%', #{zhuanye} ),'%') 
+	        </if>  
+	        <if test="shifouzhuanzhi != null and shifouzhuanzhi != '' and shifouzhuanzhi != 7">  
+	            and Person.shifouzhuanzhi = #{shifouzhuanzhi, jdbcType=INTEGER}  
+	        </if>  
+	         <if test="suoshubumen != null and suoshubumen != '' ">  
+	            and Person.suoshubumen LIKE CONCAT(CONCAT('%', #{suoshubumen, jdbcType=VARCHAR}),'%')
+	        </if>  
+	        <if test="danweimingcheng != null and danweimingcheng != '' ">  
+	            and Person.danweimingcheng LIKE CONCAT(CONCAT('%', #{danweimingcheng, jdbcType=VARCHAR}),'%')  
+	        </if> 
+	</where>  
+	</select>
+    <!-- 领导班子条件查询 -->
+    <select 
+			id="selectLeaderPersonPage" parameterType="cn.xxs.entity.PersonCondition" resultType="Map">
+			select
+			person.*
+			from person left join R_ldbz_person lp on lp.personid=person.id 
+			<where> 
+				<if test="orgid !=null ">  
+            	lp.orgid=#{orgid} 
+	        </if> 
+	        
+			<if test="name !=null ">  
+            	and person.name LIKE CONCAT(CONCAT('%', #{name, jdbcType=VARCHAR}),'%')  
+	        </if>  
+	        <if test="xingbie != null and xingbie != ''and xingbie !=7  ">  
+	          	and Person.xingbie = #{xingbie, jdbcType=INTEGER}  
+	        </if>  
+	       <if test="chushengnianyueFrom!= null">
+				<![CDATA[
+	        		AND chushengnianyue >= #{chushengnianyueFrom}
+	        		]]>
+			</if>
+			<if test="chushengnianyueTo!= null">
+				<![CDATA[
+	        		AND chushengnianyue <= #{chushengnianyueTo}
+	        		]]>
+			</if>
+	        <if test="zhengzhimianmao != null and zhengzhimianmao!= '' and zhengzhimianmao !=7">  
+	            and Person.zhengzhimianmao = #{zhengzhimianmao, jdbcType=INTEGER}  
+	        </if>  
+	        <if test="zhuanye!= null and zhuanye !=''">  
+	            and Person.zhuanye like CONCAT(CONCAT('%', #{zhuanye} ),'%') 
+	        </if>  
+	        <if test="shifouzhuanzhi != null and shifouzhuanzhi != '' and shifouzhuanzhi != 7">  
+	            and Person.shifouzhuanzhi = #{shifouzhuanzhi, jdbcType=INTEGER}  
+	        </if>  
+	         <if test="suoshubumen != null and suoshubumen != '' ">  
+	            and Person.suoshubumen LIKE CONCAT(CONCAT('%', #{suoshubumen, jdbcType=VARCHAR}),'%')
+	        </if>  
+	        <if test="danweimingcheng != null and danweimingcheng != '' ">  
+	            and Person.danweimingcheng LIKE CONCAT(CONCAT('%', #{danweimingcheng, jdbcType=VARCHAR}),'%')  
+	        </if> 
+	</where>  
+	</select>
+	<!-- 涉密人员条件查询 -->
+	<select 
+			id="selectShemiPersonPage" parameterType="cn.xxs.entity.PersonCondition" resultType="Map">
+			select
+			person.*
+			from person  left join R_shemi_person sp on sp.personid=person.id 
+			<where> 
+			<if test="orgid !=null ">  
+            	sp.orgid=#{orgid} 
+	        </if> 
+	        
+			<if test="name !=null ">  
+            	and person.name LIKE CONCAT(CONCAT('%', #{name, jdbcType=VARCHAR}),'%')  
+	        </if>  
+	        <if test="xingbie != null and xingbie != ''and xingbie !=7  ">  
+	          	and Person.xingbie = #{xingbie, jdbcType=INTEGER}  
+	        </if>  
+	       <if test="chushengnianyueFrom!= null">
+				<![CDATA[
+	        		AND chushengnianyue >= #{chushengnianyueFrom}
+	        		]]>
+			</if>
+			<if test="chushengnianyueTo!= null">
+				<![CDATA[
+	        		AND chushengnianyue <= #{chushengnianyueTo}
+	        		]]>
+			</if>
+	        <if test="zhengzhimianmao != null and zhengzhimianmao!= '' and zhengzhimianmao !=7">  
+	            and Person.zhengzhimianmao = #{zhengzhimianmao, jdbcType=INTEGER}  
+	        </if>  
+	        <if test="zhuanye!= null and zhuanye !=''">  
+	            and Person.zhuanye like CONCAT(CONCAT('%', #{zhuanye} ),'%') 
+	        </if>  
+	        <if test="shifouzhuanzhi != null and shifouzhuanzhi != '' and shifouzhuanzhi != 7">  
+	            and Person.shifouzhuanzhi = #{shifouzhuanzhi, jdbcType=INTEGER}  
+	        </if>  
+	         <if test="suoshubumen != null and suoshubumen != '' ">  
+	            and Person.suoshubumen LIKE CONCAT(CONCAT('%', #{suoshubumen, jdbcType=VARCHAR}),'%')
+	        </if>  
+	        <if test="danweimingcheng != null and danweimingcheng != '' ">  
+	            and Person.danweimingcheng LIKE CONCAT(CONCAT('%', #{danweimingcheng, jdbcType=VARCHAR}),'%')  
+	        </if> 
+	</where>  
+	</select>
+    <!-- 简历详情-->
+	<select id="selectResumePersonByPersonid" parameterType="Integer" resultType="cn.xxs.entity.ResumePerson">
+	select 
+	name,
+	xingbie,
+	chushengnianyue,
+	zhengzhimianmao,
+	xueli,
+	zhuanye,
+	minzu
+	from person where id=#{id}
+	</select>
+	<!-- 涉密人员加载-->
+	<select id="selectAllShemiRenyuanPage" parameterType="Integer" resultType="cn.xxs.entity.Person">
+	select 
+	person.*
+	from person ,R_shemi_person  sp where person.orgid=#{orgid} and sp.orgid=#{orgid} and sp.personid=person.id
+	</select>
+	<!-- 领导班子加载-->
+	<select id="selectAllLeaderPage" parameterType="Integer" resultType="cn.xxs.entity.Person">
+	select 
+	person.*
+	from person ,R_ldbz_person  lp where person.orgid=#{orgid} and lp.orgid=#{orgid} and lp.personid=person.id
+	</select>
+	<!-- 干部加载-->
+	<select id="selectAllGanbuPage" parameterType="Integer" resultType="cn.xxs.entity.Person">
+	select person.*
+	from person ,R_ganbu_person  gp where person.orgid=#{orgid} and gp.orgid=#{orgid} and gp.personid=person.id
+	</select>
+	<select id="selectPersonByConditionPage" parameterType="cn.xxs.entity.PersonCondition" resultType="Map">  
+	    SELECT * from person  
+	    <where> 
+			<if test="name !=null ">  
+            	and person.name LIKE CONCAT(CONCAT('%', #{name, jdbcType=VARCHAR}),'%')  
+	        </if>  
+	        <if test="xingbie != null and xingbie != ''and xingbie !=7  ">  
+	          	and Person.xingbie = #{xingbie, jdbcType=INTEGER}  
+	        </if>  
+	       <if test="chushengnianyueFrom!= null">
+				<![CDATA[
+	        		AND chushengnianyue >= #{chushengnianyueFrom}
+	        		]]>
+			</if>
+			<if test="chushengnianyueTo!= null">
+				<![CDATA[
+	        		AND chushengnianyue <= #{chushengnianyueTo}
+	        		]]>
+			</if>
+	        <if test="zhengzhimianmao != null and zhengzhimianmao!= '' and zhengzhimianmao !=7">  
+	            and Person.zhengzhimianmao = #{zhengzhimianmao, jdbcType=INTEGER}  
+	        </if>  
+	        <if test="zhuanye!= null and zhuanye !=''">  
+	            and Person.zhuanye like CONCAT(CONCAT('%', #{zhuanye} ),'%') 
+	        </if>  
+	        <if test="shifouzhuanzhi != null and shifouzhuanzhi != '' and shifouzhuanzhi != 7">  
+	            and Person.shifouzhuanzhi = #{shifouzhuanzhi, jdbcType=INTEGER}  
+	        </if>  
+	         <if test="suoshubumen != null and suoshubumen != '' ">  
+	            and Person.suoshubumen LIKE CONCAT(CONCAT('%', #{suoshubumen, jdbcType=VARCHAR}),'%')
+	        </if>  
+	        <if test="danweimingcheng != null and danweimingcheng != '' ">  
+	            and Person.danweimingcheng LIKE CONCAT(CONCAT('%', #{danweimingcheng, jdbcType=VARCHAR}),'%')  
+	        </if> 
+	</where>  
+	    
+	</select>  
+	
+	<!-- 涉密人员加载-->
+	<select id="selectAllShemiRenyuan" parameterType="Integer" resultType="cn.xxs.entity.Person">
+	select 
+	person.*
+	from person ,R_shemi_person  sp where person.orgid=#{orgid} and sp.orgid=#{orgid} and sp.personid=person.id
+	</select>
+	<!-- 领导班子加载-->
+	<select id="selectAllLeader" parameterType="Integer" resultType="cn.xxs.entity.Person">
+	select 
+	person.*
+	from person ,R_ldbz_person  lp where person.orgid=#{orgid} and lp.orgid=#{orgid} and lp.personid=person.id
+	</select>
+	<!-- 干部加载-->
+	<select id="selectAllGanbu" parameterType="Integer" resultType="cn.xxs.entity.Person">
+	select person.*
+	from person ,R_ganbu_person  gp where person.orgid=#{orgid} and gp.orgid=#{orgid} and gp.personid=person.id
+	</select>
+</mapper>

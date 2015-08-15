@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:android_custom="http://schemas.android.com/apk/res/com.test.car"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+	    <com.test.car.SlideLayout
+	        android:id="@+id/slidelayout"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:orientation="vertical" >
+			
+	       <LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="@drawable/background"
+		android:orientation="vertical" 
+		android:id="@+id/mileview">
+	
+	    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="32px"
+	        android:layout_marginRight="32px"
+	        android:orientation="horizontal" >
+			<ImageView
+			    android:id="@+id/mile_more"
+	            android:layout_width="64px"
+	            android:layout_height="53px"
+	            android:layout_marginTop="18dp"
+	            android:background="@drawable/ibtn_more"/>
+			<TextView android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:layout_marginLeft="16px"
+	            android:textColor="#FFFFFF"
+	            android:textSize="25sp"
+	            android:text="距离下次保养"/>
+	        <ImageButton
+	            android:id="@+id/mileage_setup"
+	            android:layout_width="64px"
+	            android:layout_height="64px"
+	            android:layout_marginTop="17dp"
+	            android:layout_marginLeft="215px"
+	            android:background="@drawable/ibtn_setup"/>
+	
+	        
+	    </LinearLayout>
+	
+		<com.test.car.RoundProgressBar  
+	        android:id="@+id/mileBar"  
+	        android:layout_width="250dip"  
+	        android:layout_height="250dip"
+	        android:layout_gravity="center"
+	        android:layout_marginTop="60dp"        
+	          
+	        android_custom:roundColor="#D1D1D1"  
+	        android_custom:roundProgressColor="#00CAC9"  
+	        android_custom:textColor="#FFFFFF"  
+	        android_custom:textIsDisplayable="true"  
+	        android_custom:roundWidth="10dip"  
+	        android_custom:textSize="72sp"
+	        android_custom:max="5000"/>  
+	     <Button
+		    android:id="@+id/orderBtn"
+		    android:layout_width="360px"
+		    android:layout_height="96px"
+		    android:layout_gravity="center"
+		    android:layout_marginTop="100dp"
+		    android:background="@drawable/btn_bg1"
+		    android:textColor="#00CAC9"
+			android:text="预约"/>
+	      <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="130px"
+	        android:orientation="horizontal"
+	        android:layout_gravity="center" >
+			<ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:src="@drawable/switch2" />
+			<ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:layout_marginLeft="10dp"
+	            android:src="@drawable/switch1" />
+			<ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:layout_marginLeft="10dp"
+	            android:src="@drawable/switch2" />
+	    </LinearLayout>
+	</LinearLayout>
+
+	 <LinearLayout 
+			    android:layout_width="fill_parent"
+			    android:layout_height="fill_parent"
+			    android:background="#00CAC9"
+			    android:orientation="vertical" >
+      <LinearLayout android:layout_width="508px"
+                  android:layout_height="wrap_content"
+                  android:paddingTop="60px"
+                  android:orientation="vertical">
+        <ImageView android:layout_width="199px"
+			      android:layout_height="199px"
+			      android:layout_marginTop="40dp"
+			      android:layout_gravity="center"
+			      android:src="@drawable/profile"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="508px"
+	                  android:layout_height="wrap_content"
+	                  android:layout_marginTop="20dp"
+	                  android:gravity="center"
+	                  android:orientation="horizontal"	>
+       <ImageButton
+		    android:id="@+id/manager_center" 
+		    android:layout_width="178px"
+		    android:layout_height="178px"
+		    android:layout_marginTop="7dip"
+		    android:background="@drawable/btn_account_bg"/>
+        <ImageButton
+		    android:id="@+id/manager_setup" 
+		    android:layout_width="178px"
+		    android:layout_height="178px"
+		    android:layout_marginLeft="20px"
+		    android:layout_marginTop="7dip"
+		    android:background="@drawable/btn_manager_setup"/>
+        </LinearLayout>
+           
+     <LinearLayout android:layout_width="508px"
+	                  android:layout_height="wrap_content"
+	                  android:gravity="center"
+	                  android:orientation="horizontal"	>
+       <ImageButton
+		    android:id="@+id/manager_about" 
+		    android:layout_width="178px"
+		    android:layout_height="178px"
+		    android:layout_marginTop="20px"
+		    android:background="@drawable/btn_manager_about"/>
+        <ImageButton
+		    android:id="@+id/manager_order" 
+		    android:layout_width="178px"
+		    android:layout_height="178px"
+		    android:layout_marginLeft="20px"
+		    android:layout_marginTop="20px"
+		    android:background="@drawable/btn_manager_order"/>
+        </LinearLayout>
+        <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="350px"
+	        android:orientation="horizontal"
+	        android:layout_gravity="center" >
+			<ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:src="@drawable/switch1" />
+			<ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:layout_marginLeft="10dp"
+	            android:src="@drawable/switch2" />
+			<ImageView
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="15dp"
+	            android:layout_marginLeft="10dp"
+	            android:src="@drawable/switch2" />
+	    </LinearLayout>
+     </LinearLayout>
+     
+    </com.test.car.SlideLayout>
+</LinearLayout>

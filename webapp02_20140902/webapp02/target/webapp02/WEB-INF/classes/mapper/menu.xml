@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="cn.xxs.dao.MenuDao">
+
+ 	<select id="getMenusByRoleId" parameterType="Integer" resultType="cn.xxs.entity.Menu">
+		select * from menutree left join r_menu_role on menutree.id=r_menu_role.menuid 
+		where r_menu_role.roleid=#{roleId} order by menutree.id;
+	</select>
+
+</mapper>

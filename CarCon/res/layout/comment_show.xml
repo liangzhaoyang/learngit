@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/show_bg" >
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/comment_show_back"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20px"
+        android:layout_marginLeft="70px"
+        android:textSize="20sp"
+        android:textColor="#4D4D4D"
+        android:text="返回"/>
+    
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/comment_show_shop"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="850px"
+        android:layout_marginLeft="206px"
+        android:textSize="20sp"
+        android:text="大众汽车维修公司"/>
+	<RatingBar
+        android:id="@+id/show_ratingbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/comment_show_shop"
+        android:layout_alignLeft="@+id/comment_show_shop"
+        android:isIndicator="true"
+        style="@style/MyRatingBar"
+        android:numStars="5"
+        android:rating="0" />
+	<TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/comment_show_result"
+        android:layout_alignTop="@+id/show_ratingbar"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="115px"
+        android:textSize="20sp"
+        android:textColor="#FA7E6F"
+        android:text="5.0分"/>
+</RelativeLayout>
