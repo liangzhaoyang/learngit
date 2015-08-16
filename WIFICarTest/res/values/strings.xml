@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Transparent"></style>
+    <string name="hello">Hello World, WIFICarTestActivity!</string>
+    <string name="app_name">WIFICarTest</string>
+</resources>

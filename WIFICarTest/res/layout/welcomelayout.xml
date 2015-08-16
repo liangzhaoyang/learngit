@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent" android:background="@drawable/wifilogo2" android:weightSum="1" android:orientation="vertical">
+  <TextView android:layout_height="wrap_content" 
+  			android:id="@+id/label" 
+  			android:layout_width="fill_parent" 
+  			android:text="WIFI  Robot for Andriod By Wenjorin" 
+  			android:gravity="center"></TextView>
+    <RelativeLayout android:layout_gravity="center_vertical" android:id="@+id/RelativeLayout1" android:layout_height="wrap_content" android:layout_width="match_parent">
+        
+        <Button android:layout_height="wrap_content" 
+        		android:layout_alignParentTop="true" 
+        		android:layout_below="@+id/label" 
+        		android:layout_marginLeft="10dp" 
+        		android:text="启动控制端" 
+        		android:id="@+id/control" 
+        		android:layout_width="wrap_content"></Button>
+        <Button android:layout_height="wrap_content" 
+        		android:layout_toRightOf="@+id/network" 
+        		android:layout_alignTop="@+id/network" 
+        		android:text="控制设置" 
+        		android:id="@+id/controlsetup" 
+        		android:layout_width="wrap_content"></Button>
+        <Button android:layout_height="wrap_content" 
+        		android:layout_alignTop="@+id/control" 
+        		android:layout_toRightOf="@+id/control" 
+        		android:text="网络设置" 
+        		android:id="@+id/network" 
+        		android:layout_width="wrap_content"></Button>
+        
+    </RelativeLayout>    
+</LinearLayout>
