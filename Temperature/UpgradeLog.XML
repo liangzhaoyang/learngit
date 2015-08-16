@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Temperature">
+</Property><Property Name="解决方案文件" Value="D:\baofeng\VS2008 Project\Temperature\Temperature.sln">
+</Property><Property Name="用户选项文件" Value="D:\baofeng\VS2008 Project\Temperature\Temperature.suo">
+</Property><Property Name="Date" Value="2015年3月4日">
+</Property><Property Name="Time" Value="10:44">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Temperature.sln" Description="文件已成功备份为 D:\baofeng\VS2008 Project\Temperature\Temperature.sln.old">
+</Event><Event ErrorLevel="0" Project="" Source="Temperature.suo" Description="文件已成功备份为 D:\baofeng\VS2008 Project\Temperature\Temperature.suo.old">
+</Event><Event ErrorLevel="0" Project="Temperature" Source="Temperature\Temperature.vcproj" Description="Converting project file 'D:\baofeng\VS2008 Project\Temperature\Temperature\Temperature.vcproj'.">
+</Event><Event ErrorLevel="1" Project="Temperature" Source="Temperature\Temperature.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="0" Project="Temperature" Source="Temperature\Temperature.vcproj" Description="Done converting to new project file 'D:\baofeng\VS2008 Project\Temperature\Temperature\Temperature.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="Temperature" Source="Temperature\Temperature.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Temperature.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="Temperature.sln" Description="Converted">
+</Event></UpgradeLog>
