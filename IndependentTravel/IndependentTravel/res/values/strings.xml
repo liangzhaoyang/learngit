@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="ok">确定</string>
+    <string name="search">搜索</string>
+    <string name="menu_share_loc">位置共享</string>
+    <string name="menu_search_route">寻找线路</string>
+    <string name="menu_poi_search">附近查找</string>
+     <string name="menu_poi_search1">天气查找</string>
+     <string name="menu_poi_jingdian">上传</string>
+    <string name="menu_my_loc">当前位置</string>
+    <string name="menu_clearn_loc">清空信息</string>
+    <string name="menu_return_home">回到首页</string>
+    <string name="m">米</string>
+    <string name="km">千米</string>
+    <string name="poi_type_tip">请输入查询的类别</string>
+    <string name="poi_result_tip">抱歉，未找到结果</string>
+    <string name="poi_type_edit_tip">输入其他类型</string>
+    <string name="poi_type_map">在地图上选取</string>
+    <string name="route_dialog_edit_tip">请输入值</string>
+    <string name="route_dialog_end_tip">您要找的终点是</string>
+    <string name="route_dialog_start_tip">您要找的起点是</string>
+    <string name="loc_loading">正在定位</string>
+    <string name="route_dialog_transit">公交</string>
+    <string name="route_dialog_driving">驾车</string>
+    <string name="route_dialog_walk">步行</string>
+    <string name="route_dialog_swap">交换</string>
+    <string name="route_dialog_set_start">起点设置</string>
+    <string name="route_dialog_set_end">终点设置</string>
+    <string name="route_dialog_edit_start">输入起点</string>
+    <string name="route_dialog_edit_end">输入终点</string>
+    <string name="route_dialog_map">地图上的点</string>
+    <string name="set_drivingpolicy">设置驾车路线规划策略</string>
+    <string name="set_transitpolicy ">设置公交路线规划策略</string>
+    <string name="policy_EBUS_TIME_FIRST">时间优先</string>
+    <string name="policy_EBUS_TRANSFER_FIRST">少换乘</string>
+    <string name="policy_EBUS_WALK_FIRST">少步行</string>
+    <string name="policy_EBUS_NO_SUBWAY">非地铁</string>
+    <string name="policy_ECAR_DIS_FIRST">距离最短</string>
+    <string name="policy_ECAR_FEE_FIRST">费用最少</string>
+    <string name="policy_tip">请选择路线的搜索方式</string>
+    <string name="bus_scheme">公交方案</string>
+    <string name="poi_in">在</string>
+    <string name="poi_poi">附近找</string>
+    <string name="pick_end">选取该点作为终点</string>
+    <string name="pick_start">选取该点作为起点</string>
+    <string name="pick_point">选取该点</string>
+     <string name="app_name">自助旅游</string>
+       <string name="hello">Hello World, WeatherDemoActivity!</string>
+    <string name="app_name_1">WeatherDemo</string>
+</resources>

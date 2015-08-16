@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_margin="5dp"
+        android:text="南京邮电大学"
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="20sp" />
+
+    <TextView
+         android:layout_margin="5dp"
+        android:text="地址：江苏省南京市新模范马路66号"
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:visibility="gone"
+         android:layout_margin="5dp"
+        android:text="电话：0111-12345678"
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+    <TextView
+        android:visibility="gone"
+         android:layout_margin="5dp"
+        android:text="邮编：210000"
+        android:id="@+id/postcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+    <TextView
+         android:layout_margin="5dp"
+        android:text="距离：100米"
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15sp" />
+
+</LinearLayout>
