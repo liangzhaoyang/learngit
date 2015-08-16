@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">快来</string>
+    <string name="action_settings">关于软件</string>
+    <string name="titlebar">快来~不再等待</string>
+    <string name="strInputAccHint">输入帐号</string>
+    <string name="strAccInputLabel">帐号</string>
+    <string name="strPswInputLabel">密码</string>
+    <string name="opt_remember">记住密码</string>
+    <string name="login">登 录</string>
+	<string name="signup">No access? Sign Up</string>
+</resources>
